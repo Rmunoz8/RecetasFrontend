@@ -1,0 +1,21 @@
+<h1>Crear Receta</h1>
+<form action="http://localhost:3800/api/crearReceta" method="post">
+  <div class="form-group">
+    <label for="nombre">Nombre Receta</label>
+    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Introduce nombre">
+  </div>
+  <div class="form-group">
+    <label for="usuario">Nombre Usuario</label>
+    <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Nombre usuario">
+  </div>
+  <div class="form-group">
+    <label for="pasos">Pasos de la receta</label>
+    <br>
+    <textarea rows="4" cols="100" name="pasos" class="form-group" placeholder="Añadir pasos"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="img">Imagen</label>
+    <input type="text" class="form-control" id="img" name="img" placeholder="Introduce imagen">
+  </div>
+  <button type="submit" class="btn btn-primary">Crear Receta</button>
+</form>

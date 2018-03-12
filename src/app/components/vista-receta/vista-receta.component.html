@@ -1,0 +1,16 @@
+<h1>{{receta.nombre}}</h1>
+<hr>
+<div class="row">
+  <div class="col-4">
+    <img [src]="receta.img" alt="" srcset="" class="img-fluid rounded">
+  </div>
+  <div class="col-8">
+    <p>{{receta.pasos}}</p>
+    <a href="listaRecetas" class="btn btn-outline-danger btn-block" [routerLink]="['/lista-recetas']">Volver</a>
+  </div>
+
+</div>
+
+
+
+

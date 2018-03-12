@@ -1,0 +1,17 @@
+<h1>Lista de Recetas</h1>
+<hr>
+<div class="card-deck card-columns text-center">
+  <div *ngFor="let receta of recetas; let i = index" class="receta">
+    <div class="card">
+      <h5>{{receta.usuario}}</h5>
+        <img class="card-img-top img-recetaLista rounded" [src]="receta.img" [alt]="receta.nombre">
+        <div class="card-body">
+          <h5 class="card-title">{{receta.nombre}}</h5>
+          <button (click)="verReceta(i)" type="button" class="btn btn-outline-primary btn-block">Ver Receta</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
