@@ -1,0 +1,29 @@
+.ng-invalid.ng-touched:not(form) {
+  border: 1px solid red;
+}
+
+.ng-valid.ng-touched:not(form) {
+  border: 1px solid green;
+}
+
+/* .central {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+} */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c2c2c2;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(216, 216, 216);
+}

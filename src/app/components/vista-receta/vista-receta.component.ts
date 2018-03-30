@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { RecetaService } from "../../services/receta.service";
+import { Receta } from "../../interfaces/receta.interface";
 
 @Component({
   selector: 'app-vista-receta',
@@ -9,13 +10,25 @@ import { RecetaService } from "../../services/receta.service";
 })
 export class VistaRecetaComponent implements OnInit {
 
-  receta:any = {};
+  // receta:Receta = {
+  //   nombre:"",
+  //   usuario:"",
+  //   pasos:"",
+  //   dificultad:"",
+  //   img:""
+  // };
+
+  receta:any = [];
 
   constructor(private activateRoute:ActivatedRoute,
               private _recetasService:RecetaService) {
+
                 this.activateRoute.params.subscribe(params =>{
-                  this.receta = this._recetasService.getReceta(params['id']);
-                })
+                 this._recetasService.getReceta(params['id']).subscribe(data=>{
+                  console.log(data);
+                  this.receta = data;
+                 });
+                });
               }
 
   ngOnInit() {

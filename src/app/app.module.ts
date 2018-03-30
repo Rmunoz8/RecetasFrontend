@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpModule } from "@angular/http";
 
 
 // Services
@@ -26,7 +28,10 @@ import { CrearRecetaComponent } from './components/crear-receta/crear-receta.com
   ],
   imports: [
     BrowserModule,
-    APP_ROUTING
+    APP_ROUTING,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpModule
   ],
   providers: [
     RecetaService

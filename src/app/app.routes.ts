@@ -9,7 +9,7 @@ const APP_ROUTES: Routes = [
     
     { path: 'listaRecetas', component: ListaRecetasComponent },
     { path: 'receta/:id', component: VistaRecetaComponent },
-    { path: 'crearReceta', component: CrearRecetaComponent },
+    { path: 'crearReceta/:id', component: CrearRecetaComponent },
     { path: '**', component: ListaRecetasComponent },
 
 ];
