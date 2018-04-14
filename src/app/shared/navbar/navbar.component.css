@@ -1,0 +1,6 @@
+nav{
+    box-shadow: 0px 1px 10px 3px rgba(102, 102, 102, 1);
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}

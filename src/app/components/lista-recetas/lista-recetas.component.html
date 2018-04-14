@@ -1,17 +1,52 @@
-<h1>Lista de Recetas</h1>
-<hr>
-<div class="card-deck card-columns text-center">
-  <div *ngFor="let receta of recetas" class="receta">
-    <div class="card {{receta.dificultad}} ">
-      <h5>{{receta.usuario}}</h5>
+
+  <h1>Lista de Recetas</h1>
+  <hr>
+  <div class="contenedorCartas">
+    <div *ngFor="let receta of recetas" class="carta {{receta.dificultad}}" >
+        <h5>{{receta.usuario}}</h5>
+        <img class="imagenCarta" [src]="receta.img" [alt]="receta.nombre">
+        <div class="cuerpoCarta">
+          <h5 class="nombrCarta">{{receta.nombre}}</h5>
+          <button (click)="verReceta(receta._id)" type="button" class="btn btn-outline-dark btn-block">Ver Receta</button>
+        </div>
+    </div>
+  </div>
+
+
+  <!-- Versión Buena Anterior
+  <h1>Lista de Recetas</h1>
+  <hr>
+  <div class="contenedorCartas">
+    <div *ngFor="let receta of recetas" class="ngFor" >
+      <div class="carta {{receta.dificultad}}">
+        <h5>{{receta.usuario}}</h5>
+        <img class="imagenCarta" [src]="receta.img" [alt]="receta.nombre">
+        <div class="cuerpoCarta">
+          <h5 class="nombrCarta">{{receta.nombre}}</h5>
+          <button (click)="verReceta(receta._id)" type="button" class="btn btn-outline-dark btn-block">Ver Receta</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+<!-- Versión Anterior -->
+<!-- <div class="container">
+    <h1>Lista de Recetas</h1>
+  <hr>
+  <div class="card-deck card-columns text-center">
+    <div *ngFor="let receta of recetas" class="receta">
+      <div class="card {{receta.dificultad}} ">
+        <h5>{{receta.usuario}}</h5>
         <img class="card-img-top img-recetaLista rounded" [src]="receta.img" [alt]="receta.nombre">
         <div class="card-body">
           <h5 class="card-title">{{receta.nombre}}</h5>
-          <button (click)="verReceta(receta._id)" type="button" class="btn btn-outline-primary btn-block">Ver Receta</button>
+          <button (click)="verReceta(receta._id)" type="button" class="btn btn-outline-dark btn-block">Ver Receta</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 
 

@@ -2,15 +2,6 @@
     margin-top: 20px;
 }
 
-.card{
-    width: 300rem;
-    /* margin: 10px;s */
-}
-
-.receta{
-    margin: 10px;
-}
-
 .img-recetaLista{
     width: 254px;
     height: 136px;
@@ -26,29 +17,16 @@
 
 body{
     margin-bottom: 150px;
-    /* display: block;
+    display: block;
     width:100vw;
     height:100vh;
     position:fixed;
     top:0px;
     left:0px;
     overflow-y: auto;
-    overflow-x: hidden; */
-}
-::-webkit-scrollbar {
-  width: 10px;
+    overflow-x: hidden;
 }
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
 
-::-webkit-scrollbar-thumb {
-  background: #c2c2c2;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgb(216, 216, 216);
-}
 
 
