@@ -1,12 +1,18 @@
 .facil {
-  border: solid palegreen 2px;
+  border: solid rgb(195, 247, 195) 10px;
+  background-color: rgb(195, 247, 195);
+
 }
-.media {
-  border: solid rgb(46, 124, 228) 2px;
+.mediana {
+  border: solid rgb(167, 205, 253) 2px;
+  background-color: rgb(167, 205, 253);
+
 }
 
 .dificil {
-  border: solid red 2px;
+  border: solid rgb(255, 146, 146) 2px;
+  background-color: rgb(255, 146, 146);
+
 }
 
 .contenedorCartas {
@@ -17,23 +23,26 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  align-content: center;
 
 }
 
 .imagenCarta {
-    width: 254px;
+    width: 136px;
     height: 136px;   
-    border-radius: 12px;
+    /* border-radius: 12px; */
 }
 
 .carta {
   max-width: 268px;
+  min-width: 268px;
   height: 270px;
   margin: 20px;
   padding: 5px;
   text-align: center;
-  box-shadow: 0px 0px 5px 3px rgba(102, 102, 102, 1);
-  border-radius: 12px;
+-webkit-box-shadow: 5px 5px 24px -1px rgba(0, 0, 0, 0.52);
+/* border-radius: 12px; */
+
 }
 
 .cuerpoCarta{
