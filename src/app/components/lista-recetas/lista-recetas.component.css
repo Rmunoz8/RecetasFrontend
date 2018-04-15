@@ -1,5 +1,5 @@
 .facil {
-  border: solid rgb(195, 247, 195) 10px;
+  border: solid rgb(195, 247, 195) 2px;
   background-color: rgb(195, 247, 195);
 
 }
@@ -40,15 +40,16 @@
   margin: 20px;
   padding: 5px;
   text-align: center;
--webkit-box-shadow: 5px 5px 24px -1px rgba(0, 0, 0, 0.52);
+  -webkit-box-shadow: 5px 5px 24px -1px rgba(0, 0, 0, 0.52);
 /* border-radius: 12px; */
 
 }
 
 .cuerpoCarta{
   /* background-color: red; */
-  margin-left: auto;
+  /* margin-left: auto;
   margin-right: auto;
+  max-height: 238px; */
   
 }
 
