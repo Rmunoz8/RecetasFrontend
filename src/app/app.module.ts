@@ -21,6 +21,7 @@ import { CrearRecetaComponent } from './components/crear-receta/crear-receta.com
 import { AlertsComponent } from './shared/alerts/alerts.component';
 import { ListaUsuariosComponent } from './components/lista-usuarios/lista-usuarios.component';
 import { RegistrerComponent } from './components/registrer/registrer.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { RegistrerComponent } from './components/registrer/registrer.component';
     CrearRecetaComponent,
     AlertsComponent,
     ListaUsuariosComponent,
-    RegistrerComponent
+    RegistrerComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,87 @@
+.contenedor {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 5%;
+}
+
+.titulo {
+  font-size: 300%;
+  margin-bottom: 50px;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* background-color: black; */
+    height: 175px;
+}
+
+.cuerpo{
+    padding: 20px;
+    height: auto;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.textoCorreo, .textoPass{
+    background-color: #9dc183;
+    height: 50px;
+    width: 300px;
+    border-radius: 10px;
+    font-size: 1.4em;
+    vertical-align: middle;
+    color: #f8f8f0;
+    padding: 5px;
+}
+
+/* .textoCorreo{
+    background: url("../../../assets/icons/at.svg") no-repeat;
+    background-size: 30px;
+} */
+.textoCorreo:focus, .textoPass:focus{
+    outline: none;
+    border: #2e8b57 2px solid;
+    border-radius: 10px;
+}
+
+.conectar{
+    margin-top: 50px;
+    width: 200px;
+    font-size: 2em;
+    border-radius: 25px;
+    background-color: #2e8b57;
+    color: #f8f8f0;
+    text-align: center;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.conectar:hover {
+  cursor: pointer;
+  background-color: #f8f8f0;
+  color: #2e8b57;
+}
+
+
+[placeholder]:empty:before {
+  content: attr(placeholder);
+  color: #f8f8f0;
+  font-size: 0.7em;
+  padding-left: 40px;
+}
+
+[placeholder]:empty:focus:before {
+  content: "";
+}
+
+
