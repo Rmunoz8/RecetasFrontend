@@ -1,0 +1,15 @@
+<div class="contenedor">
+  <h1>Usuarios</h1>
+  <hr>
+  <div>
+    <div *ngFor="let usuario of usuarios" class="contenedorUsuairos">
+      <div class="contenedorNombre">
+        <span class="nombreUsuario">{{usuario.nick}}</span>
+      </div>
+      <div class="icon">
+        <div class="avatar" alt=""></div>
+        <div class="seguir">Seguir</div>
+      </div>
+    </div>
+  </div>
+</div>

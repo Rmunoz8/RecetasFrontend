@@ -1,4 +1,4 @@
-<div class="central" >
+<div class="contenedor" >
   <!-- Alertas -->
   <div class="alert alert-success" role="alert" *ngIf="correcto">
     Receta creada
@@ -41,7 +41,7 @@
     <div class="form-group">
       <label for="pasos">Pasos de la receta</label>
       <br>
-      <textarea rows="4" cols="100" name="pasos" class="form-group" placeholder="Añadir pasos" formControlName='pasos' [(ngModel)]='receta.pasos'></textarea>
+      <textarea rows="4" cols="200%" name="pasos" class="form-group" placeholder="Añadir pasos" formControlName='pasos' [(ngModel)]='receta.pasos'></textarea>
     </div>
   
     <!-- IMAGEN -->

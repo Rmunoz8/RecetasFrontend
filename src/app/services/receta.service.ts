@@ -12,7 +12,7 @@ export class RecetaService {
   URLrecetaById: string = "/dameRecetaById/";
 
   constructor(private http:Http) {
-    console.log("Servicio listo");
+    console.log("Servicio Recetas listo");
    }
 
   neuevaReceta(receta: Receta) {
@@ -37,9 +37,7 @@ export class RecetaService {
 
    getReceta(i:string){
 
-    let url = `${this.URL}${this.URLrecetaById}${i}`
-    console.log(url);
-    
+    let url = `${this.URL}${this.URLrecetaById}${i}`    
     return this.http.get(url).map(res=>res.json());
    }
 

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg">
   <a class="navbar-brand" href="#"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
     aria-expanded="false" aria-label="Toggle navigation">
@@ -14,14 +14,19 @@
 
       <li class="nav-item" routerLinkActivate="activate">
         <a class="nav-link" [routerLink]="['crearReceta', 'nueva']">CREAR</a>
-
+      </li>
+      <li class="nav-item" routerLinkActivate="activate">
+        <a class="nav-link" [routerLink]="['listaUsuarios']">USUARIOS</a>
+      </li>
+      <li class="nav-item" routerLinkActivate="activate">
+        <a class="nav-link" [routerLink]="['registrer']">REGISTRO</a>
       </li>
 
     </ul>
     <div class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Buscar receta..." aria-label="Search" (keyup.enter)="buscarHeroe(buscarTexto.value)"
         #buscarTexto>
-      <button (click)="buscarHeroe(buscarTexto.value)" class="btn btn-outline-primary my-2 my-sm-0" type="button">Buscar</button>
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="button">Buscar</button>
     </div>
   </div>
 </nav>

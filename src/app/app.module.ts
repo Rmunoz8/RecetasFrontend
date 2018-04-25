@@ -7,6 +7,7 @@ import { HttpModule } from "@angular/http";
 // Services
 import { RecetaService } from './services/receta.service';
 import { AlertsService } from "./services/alerts.service";
+import { UsuarioService } from "./services/usuario.service";
 
 // Rutas
 import { APP_ROUTING } from "./app.routes";
@@ -18,6 +19,8 @@ import { ListaRecetasComponent } from './components/lista-recetas/lista-recetas.
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CrearRecetaComponent } from './components/crear-receta/crear-receta.component';
 import { AlertsComponent } from './shared/alerts/alerts.component';
+import { ListaUsuariosComponent } from './components/lista-usuarios/lista-usuarios.component';
+import { RegistrerComponent } from './components/registrer/registrer.component';
 
 
 @NgModule({
@@ -27,7 +30,9 @@ import { AlertsComponent } from './shared/alerts/alerts.component';
     ListaRecetasComponent,
     NavbarComponent,
     CrearRecetaComponent,
-    AlertsComponent
+    AlertsComponent,
+    ListaUsuariosComponent,
+    RegistrerComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,8 @@ import { AlertsComponent } from './shared/alerts/alerts.component';
   ],
   providers: [
     RecetaService,
-    AlertsService
+    AlertsService,
+    UsuarioService
   ],
   bootstrap: [AppComponent]
 })

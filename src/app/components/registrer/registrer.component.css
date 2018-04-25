@@ -1,0 +1,109 @@
+.contenedor{
+    background-color: #f8f8f0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 5%;
+}
+
+.titulo{
+    font-size: 300%;
+    margin-bottom: 30px;
+}
+
+.formulario{
+    height: 100%;
+    width: 60%;
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.bloque,
+.bloqueContra,
+.bloqueBoton {
+
+    width: 100%;
+    height: 40px;
+    margin-bottom: 50px;
+}
+
+.textoInput {
+    width: 100%;
+    height: 100%;
+    background-color: #9dc183;
+    color: #f8f8f0;
+    font-size: 1.5em;
+    border-radius: 10px;
+    padding-left: 5px;
+    font-weight: bold;
+}
+.textoInput:focus, .textPass:focus {
+    outline: none;
+    border: #2e8b57 2px solid;
+    border-radius: 10px;
+}
+
+.textPass{
+    width: 95%;
+    height: 100%;
+    background-color: #9dc183;
+    color: #f8f8f0;
+    font-size: 1.5em;
+    border-radius: 10px;
+    padding-left: 5px;
+    border: none;
+}
+
+.textAyuda, .textAyudaContra{
+    font-size: 1.2em;
+    padding-left: 5px;
+}
+
+.textAyudaContra{
+    padding-right: 10px;
+}
+
+.contra1, .contra2{
+    display: flex;
+    flex-direction: column;
+}
+
+.contra2{
+    align-items: flex-end;
+}
+
+.bloqueContra{
+    display: flex;
+    justify-content: space-between;
+}
+
+.bloqueBoton{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.boton{
+    width: 70%;
+    font-size: 2em;
+    border-radius: 25px;
+    background-color: #2e8b57;
+    color: #f8f8f0;
+    text-align: center;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.boton:hover{
+    cursor: pointer;
+    background-color: #f8f8f0;
+    color: #2e8b57;
+}

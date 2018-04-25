@@ -1,18 +1,37 @@
-.facil {
-  border: solid rgb(195, 247, 195) 2px;
-  background-color: rgb(195, 247, 195);
+.contenedor {
+  padding: 5%;
+  height: 100%;
+  width: 100%;
+}
 
+.facil{
+  background-color: #2e8b57;
+  color: #f8f8f0;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 2px; 
 }
 .mediana {
-  border: solid rgb(167, 205, 253) 2px;
-  background-color: rgb(167, 205, 253);
-
+  background-color: #4d64a1;
+  color: #f8f8f0;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 2px;   
 }
 
 .dificil {
-  border: solid rgb(255, 146, 146) 2px;
-  background-color: rgb(255, 146, 146);
+    background-color: #9c5555;
+  color: #f8f8f0;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 2px;     
+}
 
+h5{
+  font-size: 1em;
 }
 
 .contenedorCartas {
@@ -40,8 +59,10 @@
   margin: 20px;
   padding: 5px;
   text-align: center;
-  -webkit-box-shadow: 5px 5px 24px -1px rgba(0, 0, 0, 0.52);
-/* border-radius: 12px; */
+-webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+border: solid #f8f8f0 2px;
+
+  background-color: #f8f8f0;
 
 }
 
@@ -69,5 +90,17 @@
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(216, 216, 216);
 }
+
+.btn {
+  color: #cc4d00;
+  border: #cc4d00 1px solid;
+}
+
+.btn:hover {
+  color: #f8f8f0;
+  border: #f8f8f0 1px solid;
+  background-color: #cc4d00;
+}
+
 
 

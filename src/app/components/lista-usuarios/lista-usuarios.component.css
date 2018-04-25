@@ -1,0 +1,62 @@
+.contenedor{
+    height: 100%;
+    width: 100%;
+    padding: 5%;
+}
+
+.contenedorUsuairos{
+    margin: 5px;    
+    background-color: #f8f8f0;
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+    max-width: 900px;
+    height: 110px;    
+    border-radius: 12px;  
+    margin-left: auto;
+    margin-right: auto;  
+    padding: 40px;  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.avatar {
+  /* background-color: #fff; */
+  height: 100px;
+  width: 100px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  border-radius: 50%;
+  background-size: 100% auto;
+  background-image: url("./lentejas.jpg");
+  transition: 0.2s;
+}
+
+.avatar:hover{
+    cursor: pointer;
+}
+
+.icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 25%;
+}
+
+.nombreUsuario{
+    font-size: 200%;
+    height: 100%;
+    max-width: 50%;
+}
+.seguir{
+    color: #2e8b57;
+    border: 1px solid #2e8b57;
+    background-color: #f8f8f0;
+    padding: 5px;
+    font-size: 150%;
+    border-radius: 5px;
+}
+.seguir:hover{
+    cursor: pointer;
+    background-color: #2e8b57;
+    color: #f8f8f0;
+}
