@@ -8,6 +8,7 @@ import { HttpModule } from "@angular/http";
 import { RecetaService } from './services/receta.service';
 import { AlertsService } from "./services/alerts.service";
 import { UsuarioService } from "./services/usuario.service";
+import { LoginService } from "./services/login.service";
 
 // Rutas
 import { APP_ROUTING } from "./app.routes";
@@ -34,7 +35,7 @@ import { LoginComponent } from './components/login/login.component';
     AlertsComponent,
     ListaUsuariosComponent,
     RegistrerComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +47,8 @@ import { LoginComponent } from './components/login/login.component';
   providers: [
     RecetaService,
     AlertsService,
-    UsuarioService
+    UsuarioService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })

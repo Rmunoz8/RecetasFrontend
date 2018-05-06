@@ -1,34 +1,37 @@
 <div class="contenedor">
-  <div class="titulo">¡Únete ya!</div>
-  <div class="formulario">
-    <div class="bloque">
-      <span class="textAyuda">Nombre</span>
-      <div class="textoInput" contenteditable="true"></div>
-    </div>
-    <div class="bloque">
-      <span class="textAyuda">Apellidos</span>
-      <div class="textoInput" contenteditable="true"></div>
-    </div>
-    <div class="bloque">
-      <span class="textAyuda">Nick</span>
-      <div class="textoInput" contenteditable="true"></div>
-    </div>
-    <div class="bloque">
-      <span class="textAyuda">Correo</span>
-      <div class="textoInput" contenteditable="true"></div>
-    </div>
-    <div class="bloqueContra">
-      <div class="contra1">
-        <span class="textAyuda">Contraseña</span>
-        <input type="password" class="textPass">        
+  <div class="cuerpo" >
+    <div class="titulo">¡Únete ya!</div>
+    <div class="formulario">
+      <div class="bloque">
+        <span class="textAyuda">Nombre</span>
+        <div class="textoInput" contenteditable="true"></div>
       </div>
-      <div class="contra2">
-        <span class="textAyudaContra">Repetir Contraseña</span>        
-        <input type="password" class="textPass">
+      <div class="bloque">
+        <span class="textAyuda">Apellidos</span>
+        <div class="textoInput" contenteditable="true"></div>
+      </div>
+      <div class="bloque">
+        <span class="textAyuda">Nick</span>
+        <div class="textoInput" contenteditable="true"></div>
+      </div>
+      <div class="bloque">
+        <span class="textAyuda">Correo</span>
+        <div class="textoInput" contenteditable="true"></div>
+      </div>
+      <div class="bloqueContra">
+        <div class="contra1">
+          <span class="textAyuda">Contraseña</span>
+          <input type="password" class="textPass">
+        </div>
+        <div class="contra2">
+          <span class="textAyudaContra">Repetir Contraseña</span>
+          <input type="password" class="textPass">
+        </div>
+      </div>
+      <div class="bloqueBoton">
+        <div class="conectar">Crear</div>
       </div>
     </div>
-    <div class="bloqueBoton">
-      <div class="boton">Crear</div>
-    </div>
+    <div class="toLog" [routerLink]="['/login']" >¿Ya tienes una cuenta?</div>
   </div>
 </div>

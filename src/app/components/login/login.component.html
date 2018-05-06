@@ -1,10 +1,15 @@
 <div class="contenedor">
   <div class="cuerpo">
-    <span class="titulo">¡Registrate!</span>
-    <div class="formulario">
-      <div class="textoCorreo" contenteditable="true" placeholder="Correo"></div>
-      <div class="textoPass" contenteditable="true" placeholder="Contraseña"></div>
-    </div>
-    <div class="conectar">Conectar</div>
+    <div class="titulo">¡Identifícate!</div>
+    <form [formGroup]="loginForm" (ngSubmit)="login()" class="ngForm">
+      <div class="formulario">
+        <div class="textoCorreo" name = 'email' id="email" formControlName='email' [(ngModel)]='usuario.email' contenteditable="true" placeholder="Correo" ngDefaultControl ></div>
+        <div class="textoPass" formControlName='password' [(ngModel)]='usuario.password' contenteditable="true" placeholder="Contraseña" ngDefaultControl ></div>
+      </div>
+      <button type="submit" class="conectar">
+        Conectar
+      </button>
+    </form>
+    <div class="toReg" [routerLink]="['/registrer']" >¿No tienes cuenta?</div>
   </div>
 </div>

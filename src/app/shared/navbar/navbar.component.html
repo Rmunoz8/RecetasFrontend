@@ -1,35 +1,12 @@
-<nav class="navbar navbar-expand-lg">
-  <a class="navbar-brand" href="#"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-    aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-
-      <li class="nav-item" routerLinkActivate="activate">
-        <a class="nav-link" [routerLink]="['listaReceta']">LISTA</a>
-      </li>
-
-      <li class="nav-item" routerLinkActivate="activate">
-        <a class="nav-link" [routerLink]="['crearReceta', 'nueva']">CREAR</a>
-      </li>
-      <li class="nav-item" routerLinkActivate="activate">
-        <a class="nav-link" [routerLink]="['listaUsuarios']">USUARIOS</a>
-      </li>
-      <li class="nav-item" routerLinkActivate="activate">
-        <a class="nav-link" [routerLink]="['registrer']">REGISTRO</a>
-      </li>
-      <li class="nav-item" routerLinkActivate="activate">
-        <a class="nav-link" [routerLink]="['login']">LOGIN</a>
-      </li>
-
-    </ul>
-    <div class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Buscar receta..." aria-label="Search" (keyup.enter)="buscarHeroe(buscarTexto.value)"
-        #buscarTexto>
-      <button class="btn btn-outline-primary my-2 my-sm-0" type="button">Buscar</button>
-    </div>
+<div class="navbar">
+  <div class="iz">
+    <div class="link" [routerLink]="['listaReceta']" routerLinkActivate="activate" >LISTA</div>
+    <div class="link" [routerLink]="['listaUsuarios']">USUARIOS</div>
+    <div class="link" [routerLink]="['registrer']">REGISTRO</div>
+    <div class="link" [routerLink]="['login']">LOGIN</div>
   </div>
-</nav>
+  <div class="der">
+    <div class="perfil">Perfil</div>
+    <div class="creaReceta" [routerLink]="['crearReceta', 'nueva']" >Nueva Receta</div>
+  </div>
+</div>

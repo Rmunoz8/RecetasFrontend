@@ -5,16 +5,16 @@
 }
 
 .facil{
-  background-color: #2e8b57;
-  color: #f8f8f0;
+  background-color: #3DAE2B;
+  color: #fff;
   width: 70%;
   margin-left: auto;
   margin-right: auto;
   border-radius: 2px; 
 }
 .mediana {
-  background-color: #4d64a1;
-  color: #f8f8f0;
+  background-color: #00A6CE;
+  color: #fff;
   width: 70%;
   margin-left: auto;
   margin-right: auto;
@@ -22,8 +22,8 @@
 }
 
 .dificil {
-    background-color: #9c5555;
-  color: #f8f8f0;
+    background-color: #FF4D00;
+  color: #fff;
   width: 70%;
   margin-left: auto;
   margin-right: auto;
@@ -60,9 +60,9 @@ h5{
   padding: 5px;
   text-align: center;
 -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
-border: solid #f8f8f0 2px;
+border: solid #fff 2px;
 
-  background-color: #f8f8f0;
+  background-color: #fff;
 
 }
 
@@ -92,14 +92,17 @@ border: solid #f8f8f0 2px;
 }
 
 .btn {
-  color: #cc4d00;
-  border: #cc4d00 1px solid;
+  color: #f17a77;
+  border: #f17a77 1px solid;
+  font-size: 99%;
 }
 
 .btn:hover {
-  color: #f8f8f0;
-  border: #f8f8f0 1px solid;
-  background-color: #cc4d00;
+  color: #fff;
+  background-color: #f17a77;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.25),
+  0 8px 8px rgba(0, 0, 0, 0.22);
+  font-size: 101%;
 }
 
 

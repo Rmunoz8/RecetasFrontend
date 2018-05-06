@@ -6,7 +6,7 @@
 
 .contenedorUsuairos{
     margin: 5px;    
-    background-color: #f8f8f0;
+    background-color: #fff;
     -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
     max-width: 900px;
     height: 110px;    
@@ -48,15 +48,15 @@
     max-width: 50%;
 }
 .seguir{
-    color: #2e8b57;
-    border: 1px solid #2e8b57;
-    background-color: #f8f8f0;
+    color: #68813c;
+    border: 1px solid #68813c;
+    background-color: #fff;
     padding: 5px;
     font-size: 150%;
     border-radius: 5px;
 }
 .seguir:hover{
     cursor: pointer;
-    background-color: #2e8b57;
-    color: #f8f8f0;
+    background-color: #68813c;
+    color: #fff;
 }
