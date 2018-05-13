@@ -3,6 +3,7 @@ import { Usuario } from "../../interfaces/usuario.interfaces";
 import { LoginService } from "../../services/login.service";
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { log } from 'util';
 
 @Component({
   selector: 'app-login',
@@ -12,8 +13,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-
-  user:Usuario = {
+  token:"";
+  userIndentificado:Usuario;
+  usuario:Usuario = {
     nombre:"",
     apellido:"",
     nick:"",
@@ -23,8 +25,10 @@ export class LoginComponent implements OnInit {
     password:"",
   }
 
+  userLog: {}
+
   constructor(
-    // private _loginService: LoginComponent,
+    private _loginService: LoginService,
     private _router:Router,
     private _route:ActivatedRoute
     ) {
@@ -46,8 +50,33 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    console.log(`Email-> ${this.user.email}`);
-    
+    this.userLog = {
+      email: this.usuario.email,
+      password: this.usuario.password,
+      gettoken: true
+    }
+    this._loginService.accesoUsuario(this.userLog).subscribe((datos)=>{
+
+      if(!datos.message){
+        this.userLog = {
+          email: this.usuario.email,
+          password: this.usuario.password,
+          gettoken: false
+        }
+        this.token = datos;
+        this._loginService.accesoUsuario(this.userLog).subscribe((res)=>{
+          
+          this.userIndentificado = res.usuario;
+          // Guardar informacion en el local storage
+          localStorage.setItem('userIndentificado', JSON.stringify(this.userIndentificado));
+          localStorage.setItem('token', JSON.stringify(this.token));
+          alert(`Bienvenido ${res.usuario.nick}` );  
+          this._router.navigate(['listaRecetas']);
+        });
+      }else{
+        alert(JSON.stringify(datos.message));
+      }
+    });
   }
 
 }

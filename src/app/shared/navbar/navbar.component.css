@@ -18,13 +18,18 @@
 }
 
 .der{
-    width: 10%;
+    width: 30%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 .perfil{
     padding: 5px;
+    margin-right: 10px;
+}
+.perfil:hover{
+    cursor: pointer;
+    color: #C4D4A4
 }
 
 .creaReceta{

@@ -1,4 +1,4 @@
-<div class="contenedor">
+<div class="contenedor" *ngIf="!user">
   <div class="cuerpo" >
     <div class="titulo">¡Únete ya!</div>
     <div class="formulario">
@@ -32,6 +32,6 @@
         <div class="conectar">Crear</div>
       </div>
     </div>
-    <div class="toLog" [routerLink]="['/login']" >¿Ya tienes una cuenta?</div>
+    <div class="toLog" [routerLink]="['login']" >¿Ya tienes una cuenta?</div>
   </div>
 </div>

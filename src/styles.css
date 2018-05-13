@@ -3,9 +3,9 @@
     src: url("./assets/fonts/Montserrat/Montserrat-Regular.ttf");
 }
 
-.main-container{
+/* .main-container{
     margin-top: 20px;
-}
+} */
 
 .img-recetaLista{
     width: 254px;
@@ -13,11 +13,8 @@
 }
 
 .img-receta{
-
     width: 454px;
     height: 336px;
-
-
 }
 
 body{

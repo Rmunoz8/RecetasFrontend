@@ -22,7 +22,6 @@ export class VistaRecetaComponent implements OnInit {
 
   constructor(private activateRoute:ActivatedRoute,
               private _recetasService:RecetaService) {
-
                 this.activateRoute.params.subscribe(params =>{
                  this._recetasService.getReceta(params['id']).subscribe(data=>{
                   console.log(data);

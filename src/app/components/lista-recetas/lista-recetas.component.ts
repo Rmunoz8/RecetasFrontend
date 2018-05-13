@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RecetaService } from '../../services/receta.service';
 import { Receta } from "../../interfaces/receta.interface";
 import { Router } from '@angular/router';
+import { LoginService } from "../../services/login.service";
 
 @Component({
   selector: 'app-lista-recetas',
@@ -11,9 +12,11 @@ import { Router } from '@angular/router';
 export class ListaRecetasComponent implements OnInit {
 
   recetas:Receta[] = [];
+  user;
 
   constructor(private _recetaService:RecetaService,
-              private router:Router) {
+              private router:Router,
+              private _loginService:LoginService) {
 
                 this._recetaService.getRecetas().subscribe(data=>{
                   this.recetas = data;
@@ -21,7 +24,7 @@ export class ListaRecetasComponent implements OnInit {
                }
 
   ngOnInit() {
-    // this.recetas = this._recetaService.getRecetas();
+    this.user = this._loginService.getDatosUser();
   }
 
   verReceta(i:number){

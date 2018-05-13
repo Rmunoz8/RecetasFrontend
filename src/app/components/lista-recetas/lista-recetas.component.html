@@ -1,4 +1,5 @@
- <div class="contenedor">
+<app-navbar></app-navbar> 
+ <div class="contenedor" *ngIf="user">
     <h1>Lista de Recetas</h1>
     <hr>
     <div class="contenedorCartas">
@@ -8,7 +9,7 @@
         <div class="cuerpoCarta">
           <h5 class="nombrCarta">{{receta.nombre}}</h5>
           <h5 class="{{receta.dificultad}}">{{receta.dificultad}}</h5>
-          <button (click)="verReceta(receta._id)" type="button" class="btn btn-outline-dark btn-block">Ver Receta</button>
+          <button (click)="verReceta(receta._id)" [routerLink]="['/registrer']" type="button" class="btn btn-outline-dark btn-block">Ver Receta</button>
         </div>
       </div>
     </div>

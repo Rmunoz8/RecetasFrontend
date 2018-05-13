@@ -23,6 +23,7 @@ import { AlertsComponent } from './shared/alerts/alerts.component';
 import { ListaUsuariosComponent } from './components/lista-usuarios/lista-usuarios.component';
 import { RegistrerComponent } from './components/registrer/registrer.component';
 import { LoginComponent } from './components/login/login.component';
+import { PrincipalComponent } from './components/principal/principal.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { LoginComponent } from './components/login/login.component';
     ListaUsuariosComponent,
     RegistrerComponent,
     LoginComponent,
+    PrincipalComponent,
   ],
   imports: [
     BrowserModule,

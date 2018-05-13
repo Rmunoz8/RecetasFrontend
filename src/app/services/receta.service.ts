@@ -20,8 +20,7 @@ export class RecetaService {
     let url = `${this.URL}${this.URLCrear}`;
     let headers = new Headers({
       'Content-Type': 'application/json'
-    });
-    
+    });    
     return this.http.post( url, body, {headers} ).map( res=>{
       console.log(res.json());
       return res.json();
