@@ -1,10 +1,18 @@
-<div class="navbar">
+<div class="navbar"  *ngIf="user">
   <div class="iz">
-    <div class="link" [routerLink]="['/listaRecetas']" routerLinkActivate="activate" >LISTA</div>
-    <div class="link" [routerLink]="['/listaUsuarios']">USUARIOS</div>
+    <div class="link" [routerLink]="['/listaRecetas']" [routerLinkActive]="['active']" >RECETAS</div>
+    <div class="link" [routerLink]="['/listaUsuarios']" [routerLinkActive]="['active']">USUARIOS</div>
   </div>
   <div class="der">
     <div class="perfil">{{user.nick}}</div>
     <div class="creaReceta" [routerLink]="['/crearReceta', 'nueva']" >Nueva Receta</div>
+  </div>
+</div>
+<div class="navbar"  *ngIf="!user">
+  <div class="iz">
+  </div>
+  <div class="der">
+    <div class="link" [routerLink]="['/login']" [routerLinkActive]="['active']">Login</div>
+    <div class="link" [routerLink]="['/registrer']" [routerLinkActive]="['active']">Registro</div>
   </div>
 </div>

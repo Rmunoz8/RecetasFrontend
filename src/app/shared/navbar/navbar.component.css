@@ -17,6 +17,8 @@
     height: 100%;
 }
 
+
+
 .der{
     width: 30%;
     display: flex;
@@ -49,6 +51,11 @@
 
 .creaReceta:focus{
     outline: none;
+}
+
+.active {
+  border-bottom: 1px solid #fff;
+  /* -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75); */
 }
 
 .link{

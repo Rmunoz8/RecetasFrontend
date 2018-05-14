@@ -70,7 +70,8 @@ export class LoginComponent implements OnInit {
           // Guardar informacion en el local storage
           localStorage.setItem('userIndentificado', JSON.stringify(this.userIndentificado));
           localStorage.setItem('token', JSON.stringify(this.token));
-          alert(`Bienvenido ${res.usuario.nick}` );  
+          alert(`Bienvenido ${res.usuario.nick}` ); 
+          this._loginService.getFollows();
           this._router.navigate(['listaRecetas']);
         });
       }else{

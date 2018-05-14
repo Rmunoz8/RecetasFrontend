@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { LoginService } from "./services/login.service";
 
 @Component({
@@ -7,7 +7,7 @@ import { LoginService } from "./services/login.service";
   styleUrls: ['./app.component.css'],
   providers:[LoginService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit, DoCheck {
   public title = 'Red Social';
   public user;
 
@@ -19,6 +19,10 @@ export class AppComponent {
   ngOnInit(){
     this.user = this._loginService.getDatosUser();
     console.log(this.user);
+  }
+
+  ngDoCheck() {
+    this.user = this._loginService.getDatosUser();
   }
 
 }

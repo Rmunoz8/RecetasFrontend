@@ -6,11 +6,12 @@ import 'rxjs/Rx';
 @Injectable()
 export class LoginService {
 
-  usuario: Usuario
   URL: string = "http://localhost:3800/api";
   URLLogin: string = "/login";
+  URLFollows: string = "/myFollows";
   token:string;
   user:Usuario;
+  seguidos:Array<string> = [];
 
   constructor(private http:Http) {
     console.log("Servicio login listo");
@@ -40,6 +41,31 @@ export class LoginService {
    }
      return this.user;
    
+  }
+
+  getFollows(){
+
+    let token = localStorage.getItem('token');
+    let tokenP = JSON.parse(token).token;
+    console.log(`TOKEN SERVICE ${tokenP}`);
+    let url = `${this.URL}${this.URLLogin}`;
+    let headers = new Headers({
+      'Content-Type': 'application/json',
+      'Authorization': tokenP
+    });
+
+    return this.http.get(url).map((res, err) =>{
+
+      if(err){
+        console.log(`ERROR -> ${err} `);
+        
+      }
+
+      let resp = res.json();
+      console.log(`SEGUIDOS -> ${resp} `);
+      
+    });
+
   }
 
   getToken(){

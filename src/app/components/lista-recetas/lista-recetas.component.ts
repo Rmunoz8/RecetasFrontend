@@ -3,6 +3,7 @@ import { RecetaService } from '../../services/receta.service';
 import { Receta } from "../../interfaces/receta.interface";
 import { Router } from '@angular/router';
 import { LoginService } from "../../services/login.service";
+import { Usuario } from "../../interfaces/usuario.interfaces";
 
 @Component({
   selector: 'app-lista-recetas',
@@ -12,19 +13,21 @@ import { LoginService } from "../../services/login.service";
 export class ListaRecetasComponent implements OnInit {
 
   recetas:Receta[] = [];
-  user;
+  user: Usuario;
 
   constructor(private _recetaService:RecetaService,
               private router:Router,
               private _loginService:LoginService) {
 
-                this._recetaService.getRecetas().subscribe(data=>{
-                  this.recetas = data;
-                });
+                // this._recetaService.getRecetas().subscribe(data=>{
+                //   this.recetas = data;
+                // });
+
+
                }
 
   ngOnInit() {
-    this.user = this._loginService.getDatosUser();
+    this.user = this._loginService.getDatosUser();    
   }
 
   verReceta(i:number){
