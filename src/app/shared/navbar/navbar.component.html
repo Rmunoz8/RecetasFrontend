@@ -4,7 +4,22 @@
     <div class="link" [routerLink]="['/listaUsuarios']" [routerLinkActive]="['active']">USUARIOS</div>
   </div>
   <div class="der">
-    <div class="perfil">{{user.nick}}</div>
+    <div class="perfil">{{user.nick}}
+      <div class="desplegable">
+        <div class="linkD" [routerLink]="['/listaRecetas']">
+          <div class="userI"></div>
+          <div class="dText">Perfil</div>
+        </div>
+        <div class="linkD" [routerLink]="['/listaRecetas']">
+          <div class="recipe"></div>
+          <div class="dText">Mis Recetas</div>
+        </div>
+        <div class="linkD" (click)="logout()">
+          <div class="logout"></div>
+          <div class="dText">Logout</div>
+        </div>
+      </div>
+    </div>
     <div class="creaReceta" [routerLink]="['/crearReceta', 'nueva']" >Nueva Receta</div>
   </div>
 </div>

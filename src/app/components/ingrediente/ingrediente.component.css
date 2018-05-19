@@ -1,0 +1,22 @@
+.ingrediente{
+    display: flex;
+    justify-content: space-around;   
+}
+
+.textForm {
+  border-radius: 12px;
+  border: none;
+  padding: 5px;
+  width: 250px;
+  transition: 0.5s;
+  background-color: #C4D4A4;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.textForm:focus,
+.form-control:focus {
+  outline: none;
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+}

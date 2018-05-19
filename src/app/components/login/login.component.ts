@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
     rol:"",
     image:"",
     password:"",
+    _id: ""
   }
 
   userLog: {}

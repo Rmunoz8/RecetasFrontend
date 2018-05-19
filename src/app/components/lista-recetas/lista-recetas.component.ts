@@ -19,9 +19,9 @@ export class ListaRecetasComponent implements OnInit {
               private router:Router,
               private _loginService:LoginService) {
 
-                // this._recetaService.getRecetas().subscribe(data=>{
-                //   this.recetas = data;
-                // });
+                this._recetaService.getRecetas().subscribe(data=>{
+                  this.recetas = data;
+                });
 
 
                }

@@ -3,5 +3,7 @@ export interface Receta{
     usuario:string,
     pasos:string,
     dificultad:string,
-    img:string
+    img:string,
+    ingredientes: Array<{}>,
+    creado:Date
 }

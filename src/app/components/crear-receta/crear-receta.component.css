@@ -1,15 +1,147 @@
-.ng-invalid.ng-touched:not(form) {
+/* .ng-invalid.ng-touched:not(form) {
   border: 1px solid red;
 }
 
 .ng-valid.ng-touched:not(form) {
   border: 1px solid green;
-}
+} */
 
 .contenedor {
   padding: 5%;
-  height: 100%;
+  height: auto;
   width: 100%;
+  /* background-color: red; */
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.formulario{
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.textForm{
+  border-radius: 12px;
+  border: none;
+  padding: 5px;
+  width: 250px;
+  transition: 0.5s;
+  background-color: #C4D4A4;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+.textForm:focus,
+.form-control:focus {
+  outline: none;
+-webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);  
+}
+
+.textForm:focus{
+  width: 300px;
+}
+
+.form-control{
+  margin-top: 20px;
+  width: 250px;
+  transition: 0.5s;
+  border-radius: 12px;  
+  background-color: #C4D4A4;  
+  border: none;
+}
+.form-control:hover{
+  cursor: pointer;
+  /* border-radius: 12px 12px 0px 0px; */
+}
+.form-control:focus{
+  border-radius: 12px 12px 0px 0px;
+}
+
+.btnCrearReceta {
+    margin-top: 50px;
+    width: 250px;
+    font-size: 2em;
+    border-radius: 25px;
+    background-color: #68813c;
+    color: #fff;
+    text-align: center;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ingredientes {
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 75%;
+  margin-top: 100px;
+  margin-bottom: 30px;
+}
+
+.contenidoIngre {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;  
+}
+
+.cabeceraIn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid;
+}
+
+
+.listaIngredientes{
+  height: auto;
+  overflow: hidden;
+  border: solid 1p;
+  padding: 10px;
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);  
+}
+
+.btnIngredientes {
+  margin-top: 10px;
+  margin-bottom: 10px;
+	width:50px;
+	height:50px;
+	background: url('../../../assets/icons/plus.svg') no-repeat center;
+	border-radius:100px;
+  transition: 0.5s;
+-webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+.btnIngredientes:hover {
+  	width:53px;
+  	height:53px;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.32);
+}
+
+.nuevoIngrediente{
+  height: auto;
+}
+
+.btnCrearReceta:hover {
+  cursor: pointer;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.25),
+  0 8px 8px rgba(0, 0, 0, 0.22);
+  font-size: 2.03em;
+}
+
+
+.tituloReceta{
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 70px;
 }
 
 ::-webkit-scrollbar {
@@ -26,4 +158,83 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(216, 216, 216);
+}
+
+.nomIngre{
+  width: 40%;
+  display: flex;
+  justify-content: center;
+}
+
+.cantidadIngre{
+  width: 40%;
+  display: flex;
+  justify-content: center;
+}
+
+.eliminar {
+  width: 20%;
+  height: 15px;
+  background: url('../../../assets/icons/clear-button.svg') no-repeat center;
+  background-size: 40px;
+}
+
+.eliminar:hover{
+  cursor: pointer;
+}
+
+
+.textIngre{
+  border-radius: 12px;
+  border: none;
+  padding: 5px;
+  transition: 0.5s;
+  background-color: #C4D4A4;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  text-align: center;
+  width: 250px;
+}
+
+.textIngre:focus{
+    outline: none;
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.btnIngredientes {
+  position: relative;
+  display: inline-block;
+}
+
+.btnIngredientes .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.btnIngredientes .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.btnIngredientes:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }

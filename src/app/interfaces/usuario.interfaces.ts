@@ -5,5 +5,6 @@ export interface Usuario{
     email:string,
     rol:string,
     image:string,
-    password:string
+    password:string,
+    _id:string
 }

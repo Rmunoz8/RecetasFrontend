@@ -1,5 +1,6 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { LoginService } from "./services/login.service";
+import { Router, ActivatedRoute, Params } from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,9 @@ export class AppComponent implements OnInit, DoCheck {
   public user;
 
   constructor(
-    private _loginService: LoginService    
+    private _loginService: LoginService,
+    private _route: ActivatedRoute,
+    private _router: Router    
   ){
   }
 

@@ -1,4 +1,48 @@
-<div class="contenedor" >
+<app-navbar></app-navbar>
+<div class="contenedor">
+  <div class="tituloReceta">Crear Receta {{receta.nombre}} </div>
+
+  <form class="formulario" [formGroup] = 'formulario'(ngSubmit) = 'crearReceta()'>
+    <input class="textForm" type="text" name="nombre" id="nombre" placeholder="Nombre de la receta" formControlName = 'nombre' [(ngModel)] = 'receta.nombre' >
+    <select name="dificultad" class="form-control" id="dificultad" formControlName='dificultad' [(ngModel)]='receta.dificultad'>
+      <option value="sinDificultad">Seleccione dificultad</option>
+      <option value="facil">Fácil</option>
+      <option value="mediana">Media</option>
+      <option value="dificil">Dificil</option>
+    </select>
+    <div class="ingredientes">
+      <div class="btnIngredientes" (click)="anyadirIngrediente()"><span class="tooltiptext">Añadir Ingrediente</span></div>
+      <div class="listaIngredientes">
+        <div class="cabeceraIn">
+          <div class="eliminar" (click)="deleteAll()" *ngIf="receta.ingredientes.length >= 1" ></div>
+          <div class="nomIngre">Ingrediente</div>
+          <div class="cantidadIngre">Cantidad</div>
+        </div>
+        <div class="tablaIngredientes">
+          <div class="nuevoIngrediente"  *ngFor="let ingre of receta.ingredientes; let i = 'index'">
+            <div class="contenidoIngre in_{{i}}"> 
+              <div class="eliminar" (click)="deleteOne(i)"></div>
+              <div class="nomIngre">
+                <input type="text" class="textIngre" formControlName='ingredientes' ([ngModel])='ingre.nombre' [placeholder]="ingre.nombre">
+              </div>
+              <div class="cantidadIngre">
+                <input type="text" class="textIngre" formControlName='ingredientes' ([ngModel])='ingre.cantidad' [placeholder]="ingre.cantidad">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <textarea rows="4" cols="200%" name="pasos" class="form-group" placeholder="Añadir pasos" formControlName='pasos' [(ngModel)]='receta.pasos'></textarea>
+    </div>
+    <input type="file">    
+    <button type="submit" class="btnCrearReceta" >Crear Receta</button>    
+  </form>
+  {{receta.ingredientes}}
+<!-- [disabled]='!formulario.valid' -->
+</div>
+<!-- <div class="contenedor" > -->
   <!-- Alertas -->
   <!-- <div class="alert alert-success" role="alert" *ngIf="correcto">
     Receta creada
@@ -9,18 +53,18 @@
   </div> -->
   <!-- Fin alertas -->
   
-  <h1>Crear Receta {{receta.nombre}} </h1>
-  <form [formGroup]="formulario" (ngSubmit)="crearReceta()">
+  <!-- <h1>Crear Receta {{receta.nombre}} </h1>
+  <form [formGroup]="formulario" (ngSubmit)="crearReceta()"> -->
   
     <!-- NOMBRE DE LA RECETA -->
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="nombre">Nombre Receta</label>
       <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Introduce nombre" formControlName='nombre'
         [(ngModel)]='receta.nombre'>
-    </div>
+    </div> -->
   
     <!-- SELECCION DE DIFICULTAD -->
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="nombre">Dificultad</label>
       <select name="dificultad" class="form-control" id="dificultad" formControlName='dificultad' [(ngModel)]='receta.dificultad'>
         <option value="sinDificultad">Seleccione dificultad</option>
@@ -28,36 +72,32 @@
         <option value="mediana">Media</option>
         <option value="dificil">Dificil</option>
       </select>
-    </div>
+    </div> -->
   
     <!-- NOMBRE DEL USUARIO -->
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="usuario">Nombre Usuario {{receta.usuario}} </label>
       <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Nombre usuario" formControlName='usuario'
         [(ngModel)]='receta.usuario'>
-    </div>
+    </div> -->
   
     <!-- PASOS DE LA RECETA -->
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="pasos">Pasos de la receta</label>
       <br>
       <textarea rows="4" cols="200%" name="pasos" class="form-group" placeholder="Añadir pasos" formControlName='pasos' [(ngModel)]='receta.pasos'></textarea>
-    </div>
+    </div> -->
   
     <!-- IMAGEN -->
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="nombre">Imagen {{receta.img}} </label>
       <input type="text" class="form-control" name="img" id="img" placeholder="Introduce imagen" formControlName='img' [(ngModel)]='receta.img'>
-    </div>
+    </div> -->
   
     <!-- BOTON DE ENVIAR -->
-    <button type="submit" class="btn btn-primary" [disabled]='!formulario.valid'>Crear Receta</button>
+    <!-- <button type="submit" class="btn btn-primary" [disabled]='!formulario.valid'>Crear Receta</button>
   
   </form>
-  
-  {{ formulario.value }}
-  
-  <br> {{ formulario.status }}
 
 
-</div>
+</div> -->
