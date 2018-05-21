@@ -1,6 +1,7 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { LoginService } from "./services/login.service";
 import { Router, ActivatedRoute, Params } from "@angular/router";
+import { SnotifyService } from "ng-snotify";
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,8 @@ export class AppComponent implements OnInit, DoCheck {
   constructor(
     private _loginService: LoginService,
     private _route: ActivatedRoute,
-    private _router: Router    
+    private _router: Router,
+    private _snotifyService: SnotifyService  
   ){
   }
 

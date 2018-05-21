@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Usuario } from "../interfaces/usuario.interfaces";
-import { Http, Headers } from "@angular/http";
+import { Http, Headers, RequestOptions } from "@angular/http";
+import { Observable } from 'rxjs';
 import 'rxjs/Rx';
 
 @Injectable()
@@ -9,6 +10,7 @@ export class LoginService {
   URL: string = "http://localhost:3800/api";
   URLLogin: string = "/login";
   URLFollows: string = "/myFollows";
+  URLConters: string = "/counters";
   token:string;
   user:Usuario;
   seguidos:Array<string> = [];
@@ -43,28 +45,35 @@ export class LoginService {
    
   }
 
-  getFollows(){
+  getFollows(): Observable<any>{
 
     let token = localStorage.getItem('token');
     let tokenP = JSON.parse(token).token;
     console.log(`TOKEN SERVICE ${tokenP}`);
-    let url = `${this.URL}${this.URLLogin}`;
-    let headers = new Headers({
-      'Content-Type': 'application/json',
-      'Authorization': tokenP
-    });
+    let url = `${this.URL}${this.URLFollows}`;
+    let headers = new Headers();
 
-    return this.http.get(url).map((res, err) =>{
+    headers.append('Content-Type', 'application/json')
+    headers.append('Authorization', tokenP);
 
-      if(err){
-        console.log(`ERROR -> ${err} `);
+      console.log(`Haces la llamada?`);
+    return  this.http.get(url).map(res => {
+        console.log(`${res.json()}`);
         
-      }
-
-      let resp = res.json();
-      console.log(`SEGUIDOS -> ${resp} `);
-      
     });
+
+
+    // return this.http.get(url, opts).map((res, err) =>{
+
+    //   if(err){
+    //     console.log(`ERROR -> ${err} `);
+    //     return err
+    //   };
+
+    //   let resp = res.json();
+    //   console.log(`SEGUIDOS -> ${resp} `);
+    //   return resp
+    // });
 
   }
 
@@ -80,5 +89,17 @@ export class LoginService {
     return this.token;
 
   }
+
+  // getCounter(userId = null): Observable<any>{
+  //   let headers = new Headers().set('Content-Type', 'application/json')
+  //                               .set('Authorization', this.getToken());
+
+  //   if(userId != null){
+  //     return this.http.get(`${this.URL}${this.URLConters}/${userId}`, {headers:headers});
+  //   }else{
+  //     return this.http.get(`${this.URL}${this.URLConters}`, { headers: headers });      
+  //   }
+
+  // }
 
 }

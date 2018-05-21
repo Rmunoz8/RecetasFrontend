@@ -6,7 +6,7 @@
   <div class="der">
     <div class="perfil">{{user.nick}}
       <div class="desplegable">
-        <div class="linkD" [routerLink]="['/listaRecetas']">
+        <div class="linkD" (click)="irPerfil(user._id)">
           <div class="userI"></div>
           <div class="dText">Perfil</div>
         </div>

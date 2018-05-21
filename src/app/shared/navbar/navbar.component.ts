@@ -24,11 +24,13 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
-    console.log(`Logout`);
-
     localStorage.clear();
     this.user = null;
     this._router.navigate(['/']);
+  }
+
+  irPerfil(id:string){
+    this._router.navigate(['perfil', id]);
   }
 
 }

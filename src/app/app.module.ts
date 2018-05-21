@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
+import { SnotifyModule, SnotifyService, ToastDefaults } from "ng-snotify";
 
 
 // Services
@@ -24,6 +25,7 @@ import { ListaUsuariosComponent } from './components/lista-usuarios/lista-usuari
 import { RegistrerComponent } from './components/registrer/registrer.component';
 import { LoginComponent } from './components/login/login.component';
 import { IngredienteComponent } from './components/ingrediente/ingrediente.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -37,19 +39,23 @@ import { IngredienteComponent } from './components/ingrediente/ingrediente.compo
     RegistrerComponent,
     LoginComponent,
     IngredienteComponent,
+    PerfilComponent,
   ],
   imports: [
     BrowserModule,
     APP_ROUTING,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    SnotifyModule
   ],
   providers: [
     RecetaService,
     AlertsService,
     UsuarioService,
-    LoginService
+    LoginService,
+    { provide: 'SnotifyToastConfig', useValue: ToastDefaults },
+    SnotifyService
   ],
   bootstrap: [AppComponent]
 })

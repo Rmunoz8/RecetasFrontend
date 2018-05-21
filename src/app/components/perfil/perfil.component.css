@@ -1,0 +1,23 @@
+.contenedor {
+  padding: 5%;
+  height: 100%;
+  width: 100%;
+}
+
+.nombre{
+  font-size: 2em;
+}
+
+.principal{
+  display: flex;
+  justify-content: space-between;
+  /* background-color: blue; */
+  align-items: flex-end;  
+}
+
+.fotoPerfil{
+  height: 200px;
+  width: 200px;
+  border-radius: 12px;
+  background-color: bisque;
+}

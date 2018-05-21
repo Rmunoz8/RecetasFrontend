@@ -7,10 +7,12 @@ import { CrearRecetaComponent } from "./components/crear-receta/crear-receta.com
 import { ListaUsuariosComponent } from "./components/lista-usuarios/lista-usuarios.component";
 import { RegistrerComponent } from "./components/registrer/registrer.component";
 import { LoginComponent } from "./components/login/login.component";
+import { PerfilComponent } from "./components/perfil/perfil.component";
 
 const APP_ROUTES: Routes = [
     
     {path: '', component: LoginComponent},
+    {path: 'perfil/:id', component: PerfilComponent},
     { path: 'listaRecetas', component: ListaRecetasComponent },
     { path: 'receta/:id', component: VistaRecetaComponent },
     { path: 'crearReceta/:id', component: CrearRecetaComponent },

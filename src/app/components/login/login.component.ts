@@ -4,6 +4,7 @@ import { LoginService } from "../../services/login.service";
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { log } from 'util';
+import { SnotifyService } from "ng-snotify";
 
 @Component({
   selector: 'app-login',
@@ -31,7 +32,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private _loginService: LoginService,
     private _router:Router,
-    private _route:ActivatedRoute
+    private _route:ActivatedRoute,
+    private _snotifyService: SnotifyService
     ) {
 
 
@@ -71,7 +73,12 @@ export class LoginComponent implements OnInit {
           // Guardar informacion en el local storage
           localStorage.setItem('userIndentificado', JSON.stringify(this.userIndentificado));
           localStorage.setItem('token', JSON.stringify(this.token));
-          alert(`Bienvenido ${res.usuario.nick}` ); 
+          this._snotifyService.success(`Bienvenido ${this.userIndentificado.nick} `, {
+            timeout: 2000,
+            showProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: false
+          });
           this._loginService.getFollows();
           this._router.navigate(['listaRecetas']);
         });
