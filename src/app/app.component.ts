@@ -1,6 +1,7 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { LoginService } from "./services/login.service";
 import { Router, ActivatedRoute, Params } from "@angular/router";
+// Complementos
 import { SnotifyService } from "ng-snotify";
 
 @Component({

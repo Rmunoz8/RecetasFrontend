@@ -2,8 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
+// Complementos
 import { SnotifyModule, SnotifyService, ToastDefaults } from "ng-snotify";
-
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 // Services
 import { RecetaService } from './services/receta.service';
@@ -47,7 +48,9 @@ import { PerfilComponent } from './components/perfil/perfil.component';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    SnotifyModule
+    SnotifyModule,
+    FroalaEditorModule.forRoot(),
+    FroalaViewModule.forRoot()
   ],
   providers: [
     RecetaService,

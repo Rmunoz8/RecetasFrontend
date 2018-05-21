@@ -127,7 +127,7 @@ export class CrearRecetaComponent implements OnInit {
 
   anyadirIngrediente(){
     this.receta.ingredientes.push({
-      nombre:'Nombre',
+      nombre:'Ingrediente',
       cantidad:'Cantidad'
     });
   }
