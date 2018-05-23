@@ -2,7 +2,7 @@
 <div class="contenedor" *ngIf="!user">
   <div class="cuerpo">
     <div class="titulo">¡Identifícate!</div>
-    <form [formGroup]="loginForm" (ngSubmit)="login()" class="ngForm">
+    <form [formGroup]="loginForm" (ngSubmit)="login()" class="ngForm" autocomplete="off">
       <div class="formulario">
         <input class="textoCorreo" name = 'email' id="email" formControlName='email' [(ngModel)]='usuario.email' contenteditable="true" placeholder="Correo" ngDefaultControl >
         <input class="textoPass" type="password" formControlName='password' [(ngModel)]='usuario.password' contenteditable="true" placeholder="Contraseña" ngDefaultControl >

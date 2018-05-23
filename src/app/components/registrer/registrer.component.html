@@ -2,7 +2,7 @@
 <div class="contenedor" *ngIf="!user">
   <div class="cuerpo">
     <div class="titulo">¡Únete ya!</div>
-    <form [formGroup]='regForm' (ngSubmit)='registro()' class="formulario">
+    <form [formGroup]='regForm' (ngSubmit)='registro()' class="formulario" autocomplete="off">
       <div class="bloque">
         <span class="textAyuda">Nombre</span>
         <input type="text" formControlName='nombre' [(ngModel)]='usuario.nombre' class="textoInput" contenteditable="true">
@@ -24,15 +24,17 @@
       <div class="bloqueContra">
         <div class="contra1">
           <span class="textAyuda">Contraseña</span>
-          <input type="password" class="textPass">
+          <input type="password" formControlName='password' [(ngModel)]='usuario.password' class="textPass">
         </div>
         <div class="contra2">
           <span class="textAyudaContra">Repetir Contraseña</span>
-          <input type="password" class="textPass">
+          <input type="password" class="textPass" formControlName='password2'>
         </div>
       </div>
       <div class="bloqueBoton">
-        <button type="submit" class="conectar">Crear</button>
+        <button type="submit" [disabled]='!regForm.valid' class="conectar">Crear</button>
+      </div>
+      <div *ngIf="regForm.valid" >Es valido
       </div>
     </form>
   </div>

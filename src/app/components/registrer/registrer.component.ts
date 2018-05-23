@@ -33,9 +33,12 @@ export class RegistrerComponent implements OnInit {
     this.regForm = new FormGroup({
       nombre: new FormControl("", Validators.required),
       apellido: new FormControl("", Validators.required),
-      nick: new FormControl("", Validators.required),
+      nick: new FormControl("", [Validators.required,
+                                this.nombreCorrecto]),
       email: new FormControl("", Validators.required),
       password: new FormControl("", Validators.required),
+      password2: new FormControl("", [Validators.required,
+                                      this.samePass])
     });
 
     console.log('Formulario de registro creado');
@@ -46,13 +49,33 @@ export class RegistrerComponent implements OnInit {
   }
 
   registro(){
-    console.log(`Usuario -> ${this.usuario.nombre}
-${this.usuario.apellido}
-${this.usuario.nick}
-${this.usuario.email}
-${this.usuario.password} `);
     
+  console.log(`USUARIO -> ${this.usuario.nombre}
+  ${this.usuario.apellido}
+  ${this.usuario.nick}
+  ${this.usuario.email}
+  ${this.usuario.password}`);
+  
     
+  }
+
+  nombreCorrecto(control: FormControl):{[s:string]:boolean}{
+
+    if(control.value.length <= 2){
+      return {
+        nombreCorrecto: true
+      }
+    }
+    return null;
+  }
+
+  samePass(pass2: FormControl, pass1: FormControl):{[s:string]:boolean}{
+    if (pass2.value === pass1.value) {
+      return {
+        nombreCorrecto: true
+      }
+    }
+    return null;
   }
 
 }
