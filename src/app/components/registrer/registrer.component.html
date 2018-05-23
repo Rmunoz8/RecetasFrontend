@@ -6,6 +6,7 @@
       <div class="bloque">
         <span class="textAyuda">Nombre</span>
         <input type="text" formControlName='nombre' [(ngModel)]='usuario.nombre' class="textoInput" contenteditable="true">
+        <div class="erroForm" *ngIf="regForm.controls.nombre.invalid && regForm.controls.nombre.touched" >El nombre es requerido y tiene que contener de 2 a 20 carácteres</div>
       </div>
       <div class="bloque">
         <span class="textAyuda">Apellidos</span>
@@ -14,27 +15,31 @@
       <div class="bloque">
         <span class="textAyuda">Nick</span>
         <input type="text" formControlName='nick' [(ngModel)]='usuario.nick' class="textoInput" contenteditable="true">
-
+        <div class="erroForm" *ngIf="regForm.controls.nick.invalid && regForm.controls.nick.touched">El Nick es requerido y tiene que contener de 2 a 20 carácteres</div>
       </div>
       <div class="bloque">
         <span class="textAyuda">Correo</span>
         <input type="text" formControlName='email' [(ngModel)]='usuario.email' class="textoInput" contenteditable="true">
-
+        <div class="erroForm" *ngIf="regForm.controls.email.invalid && regForm.controls.email.touched">Sigue el ejemplo "micorreo@micorreo.algo</div>
       </div>
       <div class="bloqueContra">
         <div class="contra1">
           <span class="textAyuda">Contraseña</span>
           <input type="password" formControlName='password' [(ngModel)]='usuario.password' class="textPass">
+        <div class="erroFormP" *ngIf="regForm.controls.password.invalid && regForm.controls.password.touched">De 4 a 20 carácteres y como mínimo un número y una letra</div>
+          
         </div>
         <div class="contra2">
           <span class="textAyudaContra">Repetir Contraseña</span>
-          <input type="password" class="textPass" formControlName='password2'>
+          <input type="password" validateEqual="password" class="textPass" formControlName='password2'>
+        <div class="erroFormP" *ngIf="!regForm.valid && regForm.controls.password2.touched">Contraseñas distintas</div>          
         </div>
       </div>
-      <div class="bloqueBoton">
+      <div class="bloqueBoton"*ngIf="regForm.valid" >
         <button type="submit" [disabled]='!regForm.valid' class="conectar">Crear</button>
       </div>
-      <div *ngIf="regForm.valid" >Es valido
+      <div class="bloqueBoton"*ngIf="!regForm.valid" >
+        <div (click)="faltanDatos()" class="conectar">Crear</div>
       </div>
     </form>
   </div>

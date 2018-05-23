@@ -1,3 +1,12 @@
+.ng-invalid.ng-touched:not(form) {
+  border: 1px solid red;
+}
+
+.ng-valid.ng-touched:not(form) {
+  border: none;
+}
+
+
 .contenedor{
     width: 100%;
     height: 100%;
@@ -38,6 +47,7 @@
 
     width: 100%;
     height: 40px;
+    margin-top: 10px;
     margin-bottom: 50px;
 }
 .bloque{
@@ -65,9 +75,9 @@
 }
 
 .textPass:focus {
-    outline: none;
-    border: #68813c 2px solid;
-    border-radius: 10px;
+  outline: none;
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+
 }
 
 .textPass{
@@ -78,6 +88,7 @@
     border-radius: 10px;
     padding-left: 5px;
     border: none;
+    margin-bottom: 5px;    
 }
 
 .textAyuda, .textAyudaContra{
@@ -161,6 +172,19 @@
 
 .toLog:hover::after {
   width: 100%;
+}
+
+.erroForm,
+.erroFormP {
+
+    background-color: rgba(255, 0, 0, 0.308);
+    border-radius: 12px;
+    color: red;
+    padding-left: 5px;
+}
+
+.erroFormP{
+    width: 95%;
 }
 
 
