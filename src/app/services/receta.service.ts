@@ -26,11 +26,9 @@ export class RecetaService {
       console.log(res.json());
       return res.json();
     });
-
   }
 
    getRecetas(){
-     
     let url = `${this.URL}${this.URLgetRecetas}`
     return this.http.get(url).map(res=>res.json());
    }

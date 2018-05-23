@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Usuario } from "../interfaces/usuario.interfaces";
 import { Http, Headers, RequestOptions } from "@angular/http";
+// import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import 'rxjs/Rx';
 
@@ -46,20 +47,22 @@ export class LoginService {
   }
 
   getFollows(): Observable<any>{
-
+    let opts = new RequestOptions();
     let token = localStorage.getItem('token');
     let tokenP = JSON.parse(token).token;
     console.log(`TOKEN SERVICE ${tokenP}`);
     let url = `${this.URL}${this.URLFollows}`;
-    let headers = new Headers();
+    let headers = new Headers({
+      'Authorization': tokenP,
+      'Content-Type': 'application/json'      
+    });
 
-    headers.append('Content-Type', 'application/json')
-    headers.append('Authorization', tokenP);
-
+    opts.headers = headers;
+    console.log(`Headers -> ${opts} `);
+    
       console.log(`Haces la llamada?`);
-    return  this.http.get(url).map(res => {
+    return  this.http.get(url, {headers}).map(res => {
         console.log(`${res.json()}`);
-        
     });
 
 

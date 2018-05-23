@@ -3,7 +3,6 @@ import { Usuario } from "../../interfaces/usuario.interfaces";
 import { LoginService } from "../../services/login.service";
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { log } from 'util';
 import { SnotifyService } from "ng-snotify";
 
 @Component({
@@ -79,11 +78,19 @@ export class LoginComponent implements OnInit {
             closeOnClick: true,
             pauseOnHover: false
           });
-          this._loginService.getFollows();
+          this._loginService.getFollows().subscribe((res)=>{
+            console.log(`RES -> ${res} `);
+            
+          });
           this._router.navigate(['listaRecetas']);
         });
       }else{
-        alert(JSON.stringify(datos.message));
+        this._snotifyService.error(datos.message, {
+          timeout: 2000,
+          showProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: false
+        });
       }
     });
   }

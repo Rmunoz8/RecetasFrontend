@@ -1,23 +1,25 @@
 <app-navbar></app-navbar>
 <div class="contenedor" *ngIf="!user">
-  <div class="cuerpo" >
+  <div class="cuerpo">
     <div class="titulo">¡Únete ya!</div>
-    <div class="formulario">
+    <form [formGroup]='regForm' (ngSubmit)='registro()' class="formulario">
       <div class="bloque">
         <span class="textAyuda">Nombre</span>
-        <div class="textoInput" contenteditable="true"></div>
+        <input type="text" formControlName='nombre' [(ngModel)]='usuario.nombre' class="textoInput" contenteditable="true">
       </div>
       <div class="bloque">
         <span class="textAyuda">Apellidos</span>
-        <div class="textoInput" contenteditable="true"></div>
+        <input type="text" formControlName='apellido' [(ngModel)]='usuario.apellido' class="textoInput" contenteditable="true">
       </div>
       <div class="bloque">
         <span class="textAyuda">Nick</span>
-        <div class="textoInput" contenteditable="true"></div>
+        <input type="text" formControlName='nick' [(ngModel)]='usuario.nick' class="textoInput" contenteditable="true">
+
       </div>
       <div class="bloque">
         <span class="textAyuda">Correo</span>
-        <div class="textoInput" contenteditable="true"></div>
+        <input type="text" formControlName='email' [(ngModel)]='usuario.email' class="textoInput" contenteditable="true">
+
       </div>
       <div class="bloqueContra">
         <div class="contra1">
@@ -30,8 +32,9 @@
         </div>
       </div>
       <div class="bloqueBoton">
-        <div class="conectar">Crear</div>
+        <button type="submit" class="conectar">Crear</button>
       </div>
-    </div>
+    </form>
   </div>
 </div>
+

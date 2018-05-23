@@ -7,6 +7,8 @@ import { AlertsService } from "../../services/alerts.service";
 import { IngredienteComponent } from "../../components/ingrediente/ingrediente.component";
 import { Usuario } from "../../interfaces/usuario.interfaces";
 import { LoginService } from "../../services/login.service";
+import { DatePipe } from '@angular/common';
+import { SnotifyService } from "ng-snotify";
 
 @Component({
   selector: 'app-crear-receta',
@@ -33,7 +35,9 @@ export class CrearRecetaComponent implements OnInit {
               private router:Router,
               private route:ActivatedRoute,
               private _alertService:AlertsService,
-              private _loginService:LoginService) {
+              private _loginService:LoginService,
+              private _snotifyService: SnotifyService
+            ) {
 
     // Obtenemos id de la URL
     this.route.params.subscribe( parametros=>{
@@ -80,7 +84,12 @@ export class CrearRecetaComponent implements OnInit {
 
     this._recetaService.neuevaReceta(this.receta).subscribe(datos =>{   
       if(datos.message){
-        this._alertService.alertFallo();
+        this._snotifyService.error(datos.message, {
+          timeout: 2000,
+          showProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: false
+        });
       }else{
         setTimeout(() => {
           this._alertService.alertCorrecto();

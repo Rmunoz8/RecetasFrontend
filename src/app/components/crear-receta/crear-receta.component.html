@@ -34,7 +34,7 @@
       </div>
     </div>
     <div class="form-group">
-      <div [froalaEditor]>Hello, Froala!</div>
+<div [froalaEditor] name='pasos' formControlName='pasos' [(ngModel)]='receta.pasos'>Introduce los pasos a seguir</div>
     </div>
     <input type="file">    
     <button type="submit" class="btnCrearReceta" >Crear Receta</button>    

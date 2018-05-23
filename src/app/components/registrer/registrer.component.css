@@ -40,17 +40,31 @@
     height: 40px;
     margin-bottom: 50px;
 }
-
-.textoInput {
-    width: 100%;
-    height: 100%;
-    background-color: #C4D4A4;
-    font-size: 1.5em;
-    border-radius: 10px;
-    padding-left: 5px;
-    font-weight: bold;
+.bloque{
+    display: flex;
+    flex-direction: column;
 }
-.textoInput:focus, .textPass:focus {
+.textoInput {
+  border-radius: 12px;
+  border: none;
+  padding: 5px;
+  width: 100%;
+  transition: 0.5s;
+  background-color: #C4D4A4;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.textoInput:focus {
+  outline: none;
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.textoInput:focus {
+  width: 80%;
+}
+
+.textPass:focus {
     outline: none;
     border: #68813c 2px solid;
     border-radius: 10px;
@@ -97,29 +111,31 @@
 }
 
 .conectar {
-  width: 200px;
-  font-size: 2em;
-  border-radius: 25px;
-  background-color: #68813c;
-  color: #fff;
-  text-align: center;
-  transition: 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
+    height: 100%;
+    width: 200px;
+    font-size: 1.5em;
+    border-radius: 25px;
+    background-color: #68813c;
+    color: #fff;
+    transition: 0.2s;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
 }
 
 .conectar:hover {
   cursor: pointer;
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.25), 0 8px 8px rgba(0, 0, 0, 0.22);
-  font-size: 2.03em;
 }
 
 .conectar:focus {
   outline: none;
 }
+
+
 
 .toLog {
   display: inline-block;
