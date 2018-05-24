@@ -134,7 +134,6 @@ export class RegistrerComponent implements OnInit {
             });
           }
         });
-
       }
     })
   };

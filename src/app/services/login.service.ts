@@ -47,37 +47,18 @@ export class LoginService {
   }
 
   getFollows(): Observable<any>{
-    let opts = new RequestOptions();
+    let body = JSON.stringify(this.user._id);
+    let user = {sub: this.user._id}
     let token = localStorage.getItem('token');
-    let tokenP = JSON.parse(token).token;
-    console.log(`TOKEN SERVICE ${tokenP}`);
-    let url = `${this.URL}${this.URLFollows}`;
+    let url = `${this.URL}${this.URLFollows}/${this.user._id}`;
     let headers = new Headers({
-      'Authorization': tokenP,
       'Content-Type': 'application/json'      
     });
-
-    opts.headers = headers;
-    console.log(`Headers -> ${opts} `);
     
       console.log(`Haces la llamada?`);
-    return  this.http.get(url, {headers}).map(res => {
+    return  this.http.get(url).map(res => {
         console.log(`${res.json()}`);
     });
-
-
-    // return this.http.get(url, opts).map((res, err) =>{
-
-    //   if(err){
-    //     console.log(`ERROR -> ${err} `);
-    //     return err
-    //   };
-
-    //   let resp = res.json();
-    //   console.log(`SEGUIDOS -> ${resp} `);
-    //   return resp
-    // });
-
   }
 
   getToken(){

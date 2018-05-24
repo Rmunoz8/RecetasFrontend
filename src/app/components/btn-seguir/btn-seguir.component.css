@@ -1,0 +1,13 @@
+.seguir{
+    color: #68813c;
+    border: 1px solid #68813c;
+    background-color: none;
+    padding: 5px;
+    font-size: 150%;
+    border-radius: 5px;
+}
+.seguir:hover{
+    cursor: pointer;
+    background-color: #68813c;
+    color: #E9ECEF;
+}

@@ -6,9 +6,17 @@
 
 .nombre{
   font-size: 2em;
+  margin-right: 15px;
 }
 
 .principal{
+  display: flex;
+  justify-content: space-between;
+  /* background-color: blue; */
+  align-items: flex-end;  
+}
+
+.grupo{
   display: flex;
   justify-content: space-between;
   /* background-color: blue; */

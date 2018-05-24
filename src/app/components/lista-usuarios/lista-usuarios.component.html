@@ -8,8 +8,8 @@
         <span class="nombreUsuario">{{usuario.nick}}</span>
       </div>
       <div class="icon">
-        <div class="avatar" alt=""></div>
-        <div class="seguir">Seguir</div>
+        <div class="avatar" (click)="ifPerfil(usuario._id)" alt=""></div>
+        <app-btn-seguir idUser="usuario._id" ></app-btn-seguir>
       </div>
     </div>
   </div>

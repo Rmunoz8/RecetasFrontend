@@ -11,7 +11,7 @@ import { UsuarioService } from "../../services/usuario.service";
 export class ListaUsuariosComponent implements OnInit {
 
   usuarios:Usuario[] = [];
-
+  user:Usuario;
   constructor(private _usuarioService:UsuarioService,
               private router:Router) {
 
@@ -21,6 +21,11 @@ export class ListaUsuariosComponent implements OnInit {
                }
 
   ngOnInit() {
+  }
+
+  ifPerfil(id:string){
+    console.log(`Usuario -> ${id} `);
+    this.router.navigate(['/perfil', id]);    
   }
 
 }

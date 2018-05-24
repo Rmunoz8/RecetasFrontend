@@ -27,6 +27,7 @@ import { RegistrerComponent } from './components/registrer/registrer.component';
 import { LoginComponent } from './components/login/login.component';
 import { IngredienteComponent } from './components/ingrediente/ingrediente.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { BtnSeguirComponent } from './components/btn-seguir/btn-seguir.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { PerfilComponent } from './components/perfil/perfil.component';
     LoginComponent,
     IngredienteComponent,
     PerfilComponent,
+    BtnSeguirComponent,
   ],
   imports: [
     BrowserModule,
