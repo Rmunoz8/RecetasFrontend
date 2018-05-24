@@ -29,3 +29,10 @@
   border-radius: 12px;
   background-color: bisque;
 }
+
+.correo{
+  margin-right: 15px;
+  background-color: #d2d7dd;
+  padding: 5px;
+  border-radius: 10px;
+}

@@ -78,11 +78,11 @@ export class LoginComponent implements OnInit {
             closeOnClick: true,
             pauseOnHover: false
           });
-          this._loginService.getFollows().subscribe((res)=>{
-            console.log(`RES -> ${res} `);
-            
-          });
           this._router.navigate(['listaRecetas']);
+          this._loginService.getFollows().subscribe((res) => {
+            console.log(`RES -> ${res} `);
+
+          });
         });
       }else{
         this._snotifyService.error(datos.message, {
