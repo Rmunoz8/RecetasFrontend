@@ -4,11 +4,11 @@
     padding: 5%;
 }
 
-.contenedorUsuairos{
+.bloque{
     margin: 5px;    
     background-color: #fff;
     -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
-    max-width: 900px;
+    max-width: 850px;
     height: 110px;    
     border-radius: 12px;  
     margin-left: auto;

@@ -47,18 +47,13 @@ export class LoginService {
   }
 
   getFollows(): Observable<any>{
-    let body = JSON.stringify(this.user._id);
-    let user = {sub: this.user._id}
-    let token = localStorage.getItem('token');
-    let url = `${this.URL}${this.URLFollows}/${this.user._id}`;
-    let headers = new Headers({
-      'Content-Type': 'application/json'      
-    });
-    
-      console.log(`Haces la llamada?`);
-    return  this.http.get(url).map(res => {
-        console.log(`${res.json()}`);
-    });
+
+      let body = JSON.stringify(this.user._id);
+      let url = `${this.URL}${this.URLFollows}/${this.user._id}`;
+      let headers = new Headers({
+        'Content-Type': 'application/json'
+      });
+      return this.http.get(url).map(res =>res.json());
   }
 
   getToken(){

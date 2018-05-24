@@ -34,7 +34,4 @@ export class ListaRecetasComponent implements OnInit {
     console.log(i);
     this.router.navigate(['/receta', i]);
   }
-
-  
-
 }

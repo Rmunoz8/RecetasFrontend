@@ -20,6 +20,7 @@ export class PerfilComponent implements OnInit {
       this._userService.getUsuario(params['id']).subscribe(data => {
         console.log(data);
         this.user = data.usuario;
+        this._userService.setUserSelect(this.user._id);
       });
     });
    }

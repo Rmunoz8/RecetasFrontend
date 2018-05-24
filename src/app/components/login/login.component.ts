@@ -79,10 +79,13 @@ export class LoginComponent implements OnInit {
             pauseOnHover: false
           });
           this._router.navigate(['listaRecetas']);
-          this._loginService.getFollows().subscribe((res) => {
-            console.log(`RES -> ${res} `);
+          console.log('Llegas??');
+          setTimeout(() => {
+            this._loginService.getFollows().subscribe((res) => {
+              console.log(`RES -> ${JSON.stringify(res)} `);
+            });
+          }, 500);
 
-          });
         });
       }else{
         this._snotifyService.error(datos.message, {
