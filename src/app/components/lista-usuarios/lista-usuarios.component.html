@@ -4,13 +4,13 @@
   <hr>
   <div>
     <div *ngFor="let usuario of usuarios" class="contenedorUsuairos">
-      <div class="bloque" (click)='userSelect(usuario._id)' >
+      <div class="bloque">
         <div class="contenedorNombre">
           <span class="nombreUsuario">{{usuario.nick}}</span>
         </div>
         <div class="icon">
           <div class="avatar" (click)="ifPerfil(usuario._id)" alt=""></div>
-          <app-btn-seguir></app-btn-seguir>
+          <app-btn-seguir [usuario]='usuario' ></app-btn-seguir>
         </div>
       </div>
     </div>

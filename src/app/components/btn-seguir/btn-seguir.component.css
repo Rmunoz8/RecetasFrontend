@@ -1,13 +1,20 @@
 .seguir{
-    color: #68813c;
-    border: 1px solid #68813c;
+    background: url('../../../assets/icons/seguir2.svg') no-repeat center;
+}
+.noSeguir{
+    background: url('../../../assets/icons/unfollow2.svg')no-repeat center;
+}
+.noSeguir,
+.seguir{
     background-color: none;
     padding: 5px;
     font-size: 150%;
-    border-radius: 5px;
+    padding: 4px;
+    box-sizing: border-box;
+    background-size: 60px;
+    height: 60px;
+    width: 60px;
+    transition: 0.3s;
+    cursor: pointer;    
 }
-.seguir:hover{
-    cursor: pointer;
-    background-color: #68813c;
-    color: #E9ECEF;
-}
+

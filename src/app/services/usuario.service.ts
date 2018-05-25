@@ -11,6 +11,8 @@ export class UsuarioService {
   URLgetAllUsuarios:string = "/allUsers";
   URLuser:string = "/user";
   URLfollow: string = '/follow';
+  URLnoFollow: string = '/unFollow';
+  URLesSeguido: string = "/esSeguido";
 
   userSelect = "";
   user:Usuario;
@@ -57,8 +59,11 @@ export class UsuarioService {
    }
 
    seguirUsuario(id:string){
+     let userConect = this._loginService.getDatosUser();
+
+
      let fo = {
-       usuario : this.user._id,
+       usuario : userConect._id,
        followed : id
      }
      let body = JSON.stringify(fo);
@@ -68,4 +73,43 @@ export class UsuarioService {
      });  
      return this.http.post(url, body, {headers}).map( res =>res.json());
    }
+
+   noSeguirUsuario(id:string){
+
+    let userConect = this._loginService.getDatosUser();
+
+    let fo = {
+      usuario : userConect._id,
+      followed : id
+    }
+
+    let body = JSON.stringify(fo);
+    let url = `${this.URL}${this.URLnoFollow}`;
+     let headers = new Headers({
+       'Content-Type': 'application/json'
+     });  
+
+     return this.http.post(url, body, {headers}).map(res =>res.json());
+
+   }
+
+   esSeguido(id:string){
+
+    let userConect = this._loginService.getDatosUser();
+
+    let fo = {
+      usuario: userConect._id,
+      followed: id
+    }
+
+    let body = JSON.stringify(fo);
+    let url = `${this.URL}${this.URLesSeguido}`;
+     let headers = new Headers({
+       'Content-Type': 'application/json'
+     });  
+
+     return this.http.post(url, body, {headers}).map(res =>res.json());
+
+   }
+
 }
