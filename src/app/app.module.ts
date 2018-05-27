@@ -11,6 +11,7 @@ import { RecetaService } from './services/receta.service';
 import { AlertsService } from "./services/alerts.service";
 import { UsuarioService } from "./services/usuario.service";
 import { LoginService } from "./services/login.service";
+import { UploadService } from "./services/upload.service";
 
 // Rutas
 import { APP_ROUTING } from "./app.routes";
@@ -60,7 +61,8 @@ import { BtnSeguirComponent } from './components/btn-seguir/btn-seguir.component
     UsuarioService,
     LoginService,
     { provide: 'SnotifyToastConfig', useValue: ToastDefaults },
-    SnotifyService
+    SnotifyService,
+    UploadService
   ],
   bootstrap: [AppComponent]
 })

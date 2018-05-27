@@ -4,13 +4,13 @@
 
   <form class="formulario" [formGroup] = 'formulario'(ngSubmit) = 'crearReceta()'>
     <input class="textForm" type="text" name="nombre" id="nombre" placeholder="Nombre de la receta" formControlName = 'nombre' [(ngModel)] = 'receta.nombre' >
-    <select name="dificultad" class="form-control" id="dificultad" formControlName='dificultad' [(ngModel)]='receta.dificultad'>
+    <select name="dificultad" class="form-control dif" id="dificultad" formControlName='dificultad' [(ngModel)]='receta.dificultad'>
       <option value="sinDificultad">Seleccione dificultad</option>
       <option value="facil">Fácil</option>
       <option value="mediana">Media</option>
       <option value="dificil">Dificil</option>
     </select>
-    <div class="ingredientes">
+    <!-- <div class="ingredientes">
       <div class="btnIngredientes" (click)="anyadirIngrediente()"><span class="tooltiptext">Añadir Ingrediente</span></div>
       <div class="listaIngredientes">
         <div class="cabeceraIn">
@@ -20,7 +20,7 @@
         </div>
         <div class="tablaIngredientes">
           <div class="nuevoIngrediente"  *ngFor="let ingre of receta.ingredientes; let i = 'index'">
-            <div class="contenidoIngre in_{{i}}"> 
+            <!-- <div class="contenidoIngre in_{{i}}"> 
               <div class="eliminar" (click)="deleteOne(i)"></div>
               <div class="nomIngre">
                 <input type="text" class="textIngre" formControlName='ingredientes' ([ngModel])='ingre.nombre' [placeholder]="ingre.nombre">
@@ -28,15 +28,23 @@
               <div class="cantidadIngre">
                 <input type="text" class="textIngre" formControlName='ingredientes' ([ngModel])='ingre.cantidad' [placeholder]="ingre.cantidad">
               </div>
-            </div>
+            </div> -->
+           <!-- <app-ingrediente></app-ingrediente>
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="form-group">
-<div [froalaEditor] name='pasos' formControlName='pasos' [(ngModel)]='receta.pasos'>Introduce los pasos a seguir</div>
+    <div [froalaEditor] name='pasos' formControlName='pasos' [(ngModel)]='receta.pasos'>Introduce los pasos a seguir</div>
     </div>
-    <input type="file">    
-    <button type="submit" class="btnCrearReceta" >Crear Receta</button>    
+    <div class="jumbotron bloqueImagen ">
+      <label>Elige la imagen principal de tu receta!</label>
+      <input type="file" (change)='fileChangeEvent($event)' formControlName='imagen'>
+      <div *ngIf="receta.img" >
+        <img class="imgReceta" src="{{url}}" alt="">
+      </div>
+    </div>
+    <div type="submit" *ngIf="formulario.invalid" class="btnCrearRecetaNo" (click)='envio()'>Crear Receta</div>    
+    <button type="submit" *ngIf="formulario.valid" class="btnCrearReceta" [disabled]='formulario.invalid' >Crear Receta</button>    
   </form>
 </div>

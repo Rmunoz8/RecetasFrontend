@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { RecetaService } from "../../services/receta.service";
 import { Receta } from "../../interfaces/receta.interface";
+import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-vista-receta',
@@ -17,15 +18,19 @@ export class VistaRecetaComponent implements OnInit {
   //   dificultad:"",
   //   img:""
   // };
-
+  
+  pasos:SafeHtml
   receta:any = [];
 
   constructor(private activateRoute:ActivatedRoute,
-              private _recetasService:RecetaService) {
+              private _recetasService:RecetaService,
+              private _sanitazier: DomSanitizer) {
                 this.activateRoute.params.subscribe(params =>{
                  this._recetasService.getReceta(params['id']).subscribe(data=>{
                   console.log(data);
                   this.receta = data;
+
+                  this.pasos = this._sanitazier.bypassSecurityTrustHtml(data.pasos)
                  });
                 });
               }

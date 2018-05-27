@@ -4,11 +4,14 @@
     <div class="principal">
       <div class="grupo">
         <div class="nombre">{{user.nick}}</div>
-        <div class="correo">{{user.email}}</div>        
-        <app-btn-seguir></app-btn-seguir>
+        <div class="correo">{{user.email}}</div>   
+        <app-btn-seguir [usuario]='user' *ngIf="!propio"></app-btn-seguir>
       </div>
       <div class="fotoPerfil"></div>
     </div>
     <hr>
   </div>
 </div>
+
+
+

@@ -4,8 +4,8 @@
     <hr>
     <div class="contenedorCartas">
       <div *ngFor="let receta of recetas" class="carta">
-        <h5>{{receta.usuario}}</h5>
-        <img class="imagenCarta" [src]="receta.img" [alt]="receta.nombre">
+        <h5>{{receta.nick}}</h5>
+        <img class="imagenCarta" src="{{url+receta.img}}" [alt]="receta.nombre">
         <div class="cuerpoCarta">
           <h5 class="nombrCarta">{{receta.nombre}}</h5>
           <h5 class="{{receta.dificultad}}">{{receta.dificultad}}</h5>

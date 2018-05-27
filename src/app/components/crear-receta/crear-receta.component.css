@@ -61,7 +61,7 @@
   border-radius: 12px 12px 0px 0px;
 }
 
-.btnCrearReceta {
+.btnCrearReceta, .btnCrearRecetaNo {
     margin-top: 50px;
     width: 250px;
     font-size: 2em;
@@ -131,7 +131,8 @@
   height: auto;
 }
 
-.btnCrearReceta:hover {
+.btnCrearReceta:hover,
+.btnCrearRecetaNo:hover {
   cursor: pointer;
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.25),
   0 8px 8px rgba(0, 0, 0, 0.22);
@@ -171,6 +172,10 @@
   width: 40%;
   display: flex;
   justify-content: center;
+}
+
+.dif{
+  margin-bottom: 20px;
 }
 
 .eliminar {
@@ -239,3 +244,22 @@
   visibility: visible;
   opacity: 1;
 }
+
+.bloqueImagen {
+  min-height: 200px;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  /* align-content: center; */
+  flex-direction: column;
+  justify-content: center;  
+}
+
+.imgReceta{
+  width: 300px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+

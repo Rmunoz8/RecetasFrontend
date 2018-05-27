@@ -18,6 +18,7 @@ export class LoginService {
 
   constructor(private http:Http) {
     console.log("Servicio login listo");
+    this.getDatosUser();
    }
 
    accesoUsuario(userLog){
@@ -48,12 +49,18 @@ export class LoginService {
 
   getFollows(): Observable<any>{
 
-      let body = JSON.stringify(this.user._id);
-      let url = `${this.URL}${this.URLFollows}/${this.user._id}`;
+      let userDatos = JSON.parse(localStorage.getItem('userIndentificado'));
+      let body = JSON.stringify(userDatos._id);
+      let url = `${this.URL}${this.URLFollows}/${userDatos._id}`;
       let headers = new Headers({
         'Content-Type': 'application/json'
       });
-      return this.http.get(url).map(res =>res.json());
+      console.log(`ESTE LLEGA AQUÍ??? O NO???`);
+      
+      return this.http.get(url).map(res =>{
+        this.seguidos.push(`ESTA ES LA RESPUESTA->${res.json()}`);
+        res.json()
+      });
   }
 
   getToken(){

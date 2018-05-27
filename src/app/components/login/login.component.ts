@@ -81,9 +81,9 @@ export class LoginComponent implements OnInit {
           this._router.navigate(['listaRecetas']);
           console.log('Llegas??');
           setTimeout(() => {
-            this._loginService.getFollows().subscribe((res) => {
-              console.log(`RES -> ${JSON.stringify(res)} `);
-            });
+            // this._loginService.getFollows().subscribe((res) => {
+            //   console.log(`RES -> ${JSON.stringify(res)} `);
+            // });
           }, 500);
 
         });

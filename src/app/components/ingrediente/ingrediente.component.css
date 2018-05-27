@@ -1,22 +1,52 @@
-.ingrediente{
-    display: flex;
-    justify-content: space-around;   
+.contenidoIngre {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.textForm {
+.eliminar {
+  width: 20%;
+  height: 15px;
+  background: url('../../../assets/icons/clear-button.svg') no-repeat center;
+  background-size: 40px;
+}
+
+.eliminar:hover {
+  cursor: pointer;
+}
+
+.nomIngre {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+}
+
+.nuevoIngrediente {
+  height: auto;
+}
+
+.textIngre {
   border-radius: 12px;
   border: none;
   padding: 5px;
-  width: 250px;
   transition: 0.5s;
   background-color: #C4D4A4;
   margin-bottom: 5px;
   margin-top: 5px;
   text-align: center;
+  width: 250px;
 }
 
-.textForm:focus,
-.form-control:focus {
+.textIngre:focus {
   outline: none;
   -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
 }
+
+.cantidadIngre {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+}
+
+
+

@@ -4,7 +4,7 @@
   <hr>
   <div>
     <div *ngFor="let usuario of usuarios" class="contenedorUsuairos">
-      <div class="bloque">
+      <div class="bloque" *ngIf="usuario._id!=userConect._id">
         <div class="contenedorNombre">
           <span class="nombreUsuario">{{usuario.nick}}</span>
         </div>

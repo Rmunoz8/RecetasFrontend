@@ -1,2 +1,7 @@
-<div class="seguir" (click)="seguirUsuario()"></div>
-<div class="noSeguir" (click)="noSeguirUsuario()" ></div>
+<div *ngIf="seguido!=null" >
+    <div class="seguir" (click)="seguirUsuario()" *ngIf="!seguido"></div>
+    <div class="noSeguir" (click)="noSeguirUsuario()" *ngIf="seguido"></div>
+</div>
+
+
+
