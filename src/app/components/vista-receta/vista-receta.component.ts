@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router, Params } from "@angular/router";
 import { RecetaService } from "../../services/receta.service";
 import { Receta } from "../../interfaces/receta.interface";
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
@@ -24,7 +24,9 @@ export class VistaRecetaComponent implements OnInit {
 
   constructor(private activateRoute:ActivatedRoute,
               private _recetasService:RecetaService,
-              private _sanitazier: DomSanitizer) {
+              private _sanitazier: DomSanitizer,
+              private _route: ActivatedRoute,
+              private _router: Router,) {
                 this.activateRoute.params.subscribe(params =>{
                  this._recetasService.getReceta(params['id']).subscribe(data=>{
                   console.log(data);
@@ -36,6 +38,10 @@ export class VistaRecetaComponent implements OnInit {
               }
 
   ngOnInit() {
+  }
+
+  irPerfil(id: string) {
+    this._router.navigate(['perfil', id]);
   }
 
 }

@@ -12,7 +12,7 @@ import { SnotifyService } from "ng-snotify";
 export class NavbarComponent implements OnInit {
 
   user:Usuario
-
+  url: string = "http://localhost:3800/api/recetaImageFile/";
   constructor(private _loginService:LoginService,
     private _route: ActivatedRoute,
     private _router: Router,
@@ -40,6 +40,10 @@ export class NavbarComponent implements OnInit {
 
   irPerfil(id:string){
     this._router.navigate(['perfil', id]);
+  }
+
+  ngDoCheck() {
+    this.user = this._loginService.getDatosUser();
   }
 
 }

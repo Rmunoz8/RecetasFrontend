@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecetaService } from '../../services/receta.service';
 import { Receta } from "../../interfaces/receta.interface";
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router, Params } from "@angular/router";
 import { LoginService } from "../../services/login.service";
 import { Usuario } from "../../interfaces/usuario.interfaces";
 import { UsuarioService } from "../../services/usuario.service";
@@ -21,6 +21,7 @@ export class ListaRecetasComponent implements OnInit {
   constructor(private _recetaService:RecetaService,
               private router:Router,
               private _loginService:LoginService,
+              private _route: ActivatedRoute,
               private _usuarioService:UsuarioService) {
 
                 this._loginService.getFollows().subscribe((res) => {
@@ -37,6 +38,10 @@ export class ListaRecetasComponent implements OnInit {
 
   ngOnInit() {
     this.user = this._loginService.getDatosUser();    
+  }
+
+  irPerfil(id: string) {
+    this.router.navigate(['perfil', id]);
   }
 
   verReceta(i:number){

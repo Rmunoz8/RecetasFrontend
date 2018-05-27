@@ -94,6 +94,13 @@
     color: #C4D4A4;
 }
 
+.icono{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
 .btn{
     color: #f17a77;
     border: #f17a77 1px solid;

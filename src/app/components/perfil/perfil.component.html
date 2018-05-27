@@ -1,51 +1,62 @@
 <app-navbar></app-navbar>
 <div class="contenedor">
   <div class="jumbotron" *ngIf="editarPerfil">
-    <form [formGroup]='actualizar' class="principal">
-      <div class="grupoEdit">
-        <button type="submit" class="save" [disabled]='!actualizar.valid' (click)=' save() '></button>
-        <div class="marco">
-          <div class="ayuda">Nombre: </div>
-          <input class="textoInput" formControlName='nombre' type="text" [(ngModel)]="userConect.nombre">
-          <div *ngIf="actualizar.controls.nombre.invalid && actualizar.controls.nombre.touched" class="mensaje" title="El nombre es requerido y tiene que contener de 2 a 20 carácteres"></div>
+    <div class="overlay">
+      <form [formGroup]='actualizar' class="principalEdit">
+        <div class="formulariEdit">
+          <div class="grupoEdit">
+            <div class="bloqueSave" *ngIf="actualizar.valid" (click)=' save()'>Guardar
+              <button type="submit" class="save"></button>
+            </div>
+            <div class="marco">
+              <div class="ayudaBloque">
+                <div class="ayuda">Nombre: </div>
+                <div *ngIf="actualizar.controls.nombre.invalid && actualizar.controls.nombre.touched" class="mensaje" title="El nombre es requerido y tiene que contener de 2 a 20 carácteres"></div>
+              </div>
+              <input class="textoInput" formControlName='nombre' type="text" [(ngModel)]="userConect.nombre">
+            </div>
+            <div class="marco">
+              <div class="ayuda">Apellidos: </div>
+              <input class="textoInput" formControlName='apellido' type="text" [(ngModel)]="userConect.apellido">
+            </div>
+            <div class="marco">
+              <div class="ayudaBloque">
+                <div class="ayuda">Nick: </div>
+                <div class="mensaje" *ngIf="actualizar.controls.nick.invalid && actualizar.controls.nick.touched" title="El Nick es requerido y tiene que contener de 2 a 20 carácteres"></div>
+              </div>
+              <input class="textoInput" formControlName='nick' type="text" [(ngModel)]="userConect.nick">
+            </div>
+            <div class="marco">
+              <div class="ayudaBloque">
+                <div class="ayuda">Correo: </div>
+                <div *ngIf="actualizar.controls.email.invalid && actualizar.controls.email.touched" class="mensaje" title="Sigue el ejemplo 'micorreo@micorreo.algo'"></div>
+              </div>
+              <input class="textoInput" formControlName='email' type="text" [(ngModel)]="userConect.email">
+            </div>
+            <div class="marco">
+              <div class="ayudaBloque">
+                <div class="ayuda">Contraseña: </div>
+                <div *ngIf="actualizar.controls.password.invalid && actualizar.controls.password.touched" class="mensaje" title="De 4 a 20 carácteres y como mínimo un número y una letra"></div>
+              </div>
+              <input class="textoInput" formControlName='password' type="password" [(ngModel)]="userConect.password">
+            </div>
+            <div class="marco">
+              <div class="ayudaBloque">
+                <div class="ayuda">Repetir contraseña: </div>
+                <div *ngIf="actualizar.controls.password2.invalid && actualizar.controls.password2.touched" class="mensaje" title="Contraseñas distintas"></div>
+              </div>
+              <input class="textoInput" formControlName='password2' type="password" [(ngModel)]="userConect.password2">
+            </div>
+          </div>
+          <div class="bloqueFoto">
+            <img class="fotoPerfil" src="{{url+userConect.image}}">
+            <input type="file" (change)='fileChangeEvent($event)'>
+          </div>
         </div>
-        <div class="marco">
-          <div class="ayuda">Apellidos: </div>
-          <input class="textoInput" formControlName='apellido' type="text" [(ngModel)]="userConect.apellido">
-        </div>
-        <div class="marco">
-          <div class="ayuda">Nick: </div>
-          <input class="textoInput" formControlName='nick' type="text" [(ngModel)]="userConect.nick">
-          <div class="mensaje" *ngIf="actualizar.controls.nick.invalid && actualizar.controls.nick.touched" title="El Nick es requerido y tiene que contener de 2 a 20 carácteres"></div>
-        </div>
-        <div class="marco">
-          <div class="ayuda">Correo: </div>
-          <input class="textoInput" formControlName='email' type="text" [(ngModel)]="userConect.email">
-          <div *ngIf="actualizar.controls.email.invalid && actualizar.controls.email.touched" class="mensaje" title="Sigue el ejemplo 'micorreo@micorreo.algo'"></div>
-        </div>
-        <div class="marco">
-          <div class="ayuda">Contraseña: </div>
-          <input class="textoInput" formControlName='password' type="password" [(ngModel)]="userConect.password">
-          <div *ngIf="actualizar.controls.password.invalid && actualizar.controls.password.touched" class="mensaje" title="De 4 a 20 carácteres y como mínimo un número y una letra"></div>
-        </div>
-        <div class="marco">
-          <div class="ayuda">Repetir contraseña: </div>
-          <input class="textoInput" formControlName='password2' type="password" [(ngModel)]="userConect.password2">
-          <div *ngIf="actualizar.controls.password2.invalid && actualizar.controls.password2.touched" class="mensaje" title="Contraseñas distintas"></div>
-        </div>
-      </div>
-      <div class="bloqueFoto">
-        <img class="fotoPerfil" src="{{url+user.image}}">
-        <input type="file">
-      </div>
-    </form>
+        <div class="alerta">Rellena todos los campos</div>
+      </form>
+    </div>
   </div>
-
-
-
-
-
-
 
 
 
@@ -56,15 +67,15 @@
   <div class="jumbotron" *ngIf="!editarPerfil" >
     <div class="principal">
       <div class="grupo">
-        <div class="editar" *ngIf="propio" (click)='editar()' ></div>        
-        <div class="nombre">{{user.nick | uppercase }}</div>
-        <div class="correo">{{user.email}}</div>   
+        <div class="editar" *ngIf="propio" (click)='editar()' >Editar <div class="ediarIcono" ></div> </div>        
+          <div class="nombre">{{userPerfil.nick | uppercase }}</div>
+          <div class="correo">{{userPerfil.email}}</div>
         <app-btn-seguir [usuario]='user' *ngIf="!propio"></app-btn-seguir>
       </div>
-      <img class="fotoPerfil" src="{{url+user.image}}">
+      <img class="fotoPerfil" src="{{url+userPerfil.image}}">
     </div>
   </div>
-  <app-recetas-usuario [usuario]='user'></app-recetas-usuario>
+  <app-recetas-usuario [usuario]='userPerfil'></app-recetas-usuario>
 </div>
 
 

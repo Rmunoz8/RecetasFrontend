@@ -9,11 +9,53 @@
   margin-right: 15px;
 }
 
+.overlay{
+  top: 0px;
+  left: 0px;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.329);
+  z-index: 3000;
+}
+
 .principal{
   display: flex;
   justify-content: space-between;
   /* background-color: blue; */
   align-items: flex-end;  
+}
+
+.principalEdit {
+  top: 30%;
+  width: 100%;
+  height: 50%;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  /* background-color: blue; */
+  padding: 20px;
+  background-color: azure;
+  justify-content: space-between;
+}
+
+.formulariEdit{
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    align-items: flex-start;
+}
+
+.alerta{
+  display: flex;
+  justify-content: center;
+  font-size: 2.5em;
+}
+
+.bloqueFoto{
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .grupo{
@@ -37,20 +79,74 @@
   border-radius: 10px;
 }
 
-.editar{
-  height: 40px;
-  width: 40px;
-  background: url('../../../assets/icons/edit.svg') no-repeat center;
-  background-size: 40px;
-  margin-right: 5px;
+.bloqueSave {
+  height: 50px;
+  width: 150px;
+  padding: 5px;
+  background-color: #f17a77;
+  border-radius: .25rem;
+  transition: 0.2s;
   cursor: pointer;
+  font-size: 99%;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: #fff;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.bloqueSave:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.25), 0 8px 8px rgba(0, 0, 0, 0.22);
+  font-size: 101%;
+}
+
+.bloqueSave:focus {
+  outline: none;
+}
+
+
+.editar {
+  height: 50px;
+  width: 100px;
+  padding: 5px;
+  background-color: #f17a77;
+  border-radius: .25rem;
+  transition: 0.2s;
+  cursor: pointer;
+  font-size: 99%;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.editar:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.25), 0 8px 8px rgba(0, 0, 0, 0.22);
+  font-size: 101%;
+}
+
+.editar:focus {
+  outline: none;
+}
+
+.ediarIcono{
+    height: 30px;
+    width: 30px;
+    background: url('../../../assets/icons/edit.svg') no-repeat center;
+    background-size: 30px;
+    margin-right: 5px;
+    margin-left: 5px;
 }
 
 .save {
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   background: url('../../../assets/icons/checked.svg') no-repeat center;
-  background-size: 40px;
+  background-size: 30px;
   margin-right: 5px;
   cursor: pointer;
   border: none;
@@ -59,16 +155,24 @@
 outline: none;
 }
 
+.ayudaBloque{
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  align-items: center;
+}
+
 .grupoEdit{
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 40%;
 }
 
 .marco{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  height: 50px;
 }
 
 .textoInput {

@@ -1,18 +1,19 @@
 <app-navbar></app-navbar>
 <div class="contenedor">
-  <h1>{{receta.nombre | uppercase}}
-    <small> {{receta.dificultad}} </small>
-  </h1>
-  <hr>
-  <!-- <div class="row"> -->
-    <!-- <div class="col-4">
-      <img [src]="receta.img" alt="" srcset="" class="img-fluid rounded">
-    </div> -->
-    <div class="">
-      <div [innerHtml]='pasos' class="recetaHtml" ></div>
+  <div class="cabecera">
+    <div class="panel">
+      <div class="titulo">
+        {{receta.nombre}}<small> {{receta.dificultad}} </small>
+      </div>
+      <div class="usuario" (click)="irPerfil(receta.usuario)">{{receta.nick}}</div>
     </div>
-  <!-- </div> -->
+  </div>
+  <hr>
+  <div class="">
+    <div [innerHtml]='pasos' class="recetaHtml"></div>
+  </div>
 </div>
+
 
 
 

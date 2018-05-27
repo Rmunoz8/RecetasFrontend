@@ -5,6 +5,7 @@ import { LoginService } from "../../services/login.service";
 import { UsuarioService } from "../../services/usuario.service";
 import { NG_VALIDATORS, Validator, Validators, AbstractControl, ValidatorFn, FormGroup, FormControl } from "@angular/forms";
 import { SnotifyService } from "ng-snotify";
+import { UploadService } from "../../services/upload.service";
 
 
 
@@ -17,8 +18,9 @@ export class PerfilComponent implements OnInit {
 
   actualizar: FormGroup;
   editarPerfil:boolean = false;
-  user:Usuario
-  userConect:Usuario
+  user:Usuario;
+  userConect:Usuario;
+  userPerfil:Usuario;
   propio: boolean;
   url: string = "http://localhost:3800/api/recetaImageFile/";
 
@@ -26,14 +28,17 @@ export class PerfilComponent implements OnInit {
               private activateRoute: ActivatedRoute,
               private _snotifyService: SnotifyService,              
               private _userService: UsuarioService,
+              private _uploadService: UploadService
             ) {
                 this.propio = false;
                 this.userConect = this._login.getDatosUser();
     this.activateRoute.params.subscribe(params => {
       this._userService.getUsuario(params['id']).subscribe(data => {
-        this.user = data.usuario;
-        if(this.user._id === this.userConect._id){
+        this.userPerfil = data.usuario;
+        if(this.userPerfil._id === this.userConect._id){
           this.propio = true;
+          this.userConect = data.usuario;
+          this.userConect.password = "";          
         }
         this._userService.setUserSelect(this.user._id);
       });
@@ -84,6 +89,7 @@ export class PerfilComponent implements OnInit {
           pauseOnHover: false
         });
       }
+      localStorage.setItem('userIndentificado', JSON.stringify(datos.usuario));              
       this.editarPerfil = false;
     });
 
@@ -91,6 +97,22 @@ export class PerfilComponent implements OnInit {
 
   samePass = function (fg: FormGroup) {
     return fg.get('password').value === fg.get('password2').value ? null : { 'mismatch': true };
+  }
+
+  ngDoCheck() {
+    this.user = this._login.getDatosUser();
+  }
+
+  public filesToUpload: Array<File>
+  fileChangeEvent(fileInput: any){
+    this.filesToUpload = <Array<File>>fileInput.target.files;
+    console.log(this.filesToUpload);
+    this._uploadService.makeFileRequest(`http://localhost:3800/api/userImage/${this.userConect._id}`, [], this.filesToUpload, 'image', this.userConect._id)
+    .then((res:any)=>{
+      console.log(`Antes -> ${this.userConect.image} `);
+      this.userConect.image = res.usuario.image;
+      console.log(`Después -> ${this.userConect.image} `);      
+    });
   }
 
 }

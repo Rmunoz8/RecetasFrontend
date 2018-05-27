@@ -4,15 +4,12 @@
     <div class="link" [routerLink]="['/listaUsuarios']" [routerLinkActive]="['active']">USUARIOS</div>
   </div>
   <div class="der">
+<img class="icono" (click)="irPerfil(user._id)" src="{{url+user.image}}">
     <div class="perfil">{{user.nick}}
       <div class="desplegable">
         <div class="linkD" (click)="irPerfil(user._id)">
           <div class="userI"></div>
           <div class="dText">Perfil</div>
-        </div>
-        <div class="linkD" [routerLink]="['/listaRecetas']">
-          <div class="recipe"></div>
-          <div class="dText">Mis Recetas</div>
         </div>
         <div class="linkD" (click)="logout()">
           <div class="logout"></div>
