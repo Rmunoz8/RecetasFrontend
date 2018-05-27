@@ -29,6 +29,7 @@ import { LoginComponent } from './components/login/login.component';
 import { IngredienteComponent } from './components/ingrediente/ingrediente.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { BtnSeguirComponent } from './components/btn-seguir/btn-seguir.component';
+import { RecetasUsuarioComponent } from './components/recetas-usuario/recetas-usuario.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { BtnSeguirComponent } from './components/btn-seguir/btn-seguir.component
     IngredienteComponent,
     PerfilComponent,
     BtnSeguirComponent,
+    RecetasUsuarioComponent,
   ],
   imports: [
     BrowserModule,

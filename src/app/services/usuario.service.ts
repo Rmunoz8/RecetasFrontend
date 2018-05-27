@@ -10,6 +10,7 @@ export class UsuarioService {
   URL: string = "http://localhost:3800/api";
   URLgetAllUsuarios:string = "/allUsers";
   URLuser:string = "/user";
+  URLuserUpdate: string = "/userUpdate";
   URLfollow: string = '/follow';
   URLnoFollow: string = '/unFollow';
   URLesSeguido: string = "/esSeguido";
@@ -40,6 +41,21 @@ export class UsuarioService {
 
     return this.http.post(url, body, {headers}).map(res =>{
       console.log(res.json());
+      return res.json();
+    });
+
+   }
+
+   userUpdate(user:Usuario){
+
+    let body = JSON.stringify(user);
+     let url = `${this.URL}${this.URLuserUpdate}/${user._id}`
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+
+    return this.http.post(url, body, {headers}).map(res=>{
+      console.log(`Actualización -> ${res.json()} `);
       return res.json();
     });
 

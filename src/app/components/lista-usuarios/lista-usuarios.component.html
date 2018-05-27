@@ -6,10 +6,10 @@
     <div *ngFor="let usuario of usuarios" class="contenedorUsuairos">
       <div class="bloque" *ngIf="usuario._id!=userConect._id">
         <div class="contenedorNombre">
-          <span class="nombreUsuario">{{usuario.nick}}</span>
+          <span class="nombreUsuario" (click)="ifPerfil(usuario._id)">{{usuario.nick}}</span>
         </div>
         <div class="icon">
-          <div class="avatar" (click)="ifPerfil(usuario._id)" alt=""></div>
+          <img class="avatar" (click)="ifPerfil(usuario._id)" alt="" src="{{url+usuario.image}}">
           <app-btn-seguir [usuario]='usuario' ></app-btn-seguir>
         </div>
       </div>

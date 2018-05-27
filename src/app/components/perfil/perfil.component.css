@@ -24,10 +24,10 @@
 }
 
 .fotoPerfil{
-  height: 200px;
-  width: 200px;
+  height: 256px;
+  width: 256px;
   border-radius: 12px;
-  background-color: bisque;
+  background-color: #f17a77;
 }
 
 .correo{
@@ -36,3 +36,72 @@
   padding: 5px;
   border-radius: 10px;
 }
+
+.editar{
+  height: 40px;
+  width: 40px;
+  background: url('../../../assets/icons/edit.svg') no-repeat center;
+  background-size: 40px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.save {
+  height: 40px;
+  width: 40px;
+  background: url('../../../assets/icons/checked.svg') no-repeat center;
+  background-size: 40px;
+  margin-right: 5px;
+  cursor: pointer;
+  border: none;
+}
+.save:focus {
+outline: none;
+}
+
+.grupoEdit{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.marco{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.textoInput {
+  border-radius: 12px;
+  border: none;
+  padding: 5px;
+  width: 30%;
+  transition: 0.6s;
+  background-color: #C4D4A4;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.textoInput:focus {
+  outline: none;
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.textoInput:focus {
+  width: 40%;
+}
+
+.bloqueFoto{
+  display: flex;
+  flex-direction: column;
+}
+
+.mensaje{
+  background: url('../../../assets/icons/error-triangle.svg') no-repeat center;
+  height: 30px;
+  width: 30px;
+  background-size: 30px;
+  cursor: pointer;
+}
+
+

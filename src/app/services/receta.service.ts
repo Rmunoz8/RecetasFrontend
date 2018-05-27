@@ -11,6 +11,7 @@ export class RecetaService {
   URLCrear: string = "/crearReceta";
   URLgetRecetas: string = "/dameRecetas";
   URLrecetaById: string = "/dameRecetaById/";
+  URLrecetaUser: string = "/recetasUsuario/";
 
   constructor(private http:Http) {
     console.log("Servicio Recetas listo");
@@ -30,6 +31,10 @@ export class RecetaService {
 
    getRecetas(){
     let url = `${this.URL}${this.URLgetRecetas}`
+    return this.http.get(url).map(res=>res.json());
+   }
+   getRecetasUser(id:string){
+    let url = `${this.URL}${this.URLrecetaUser}${id}`;    
     return this.http.get(url).map(res=>res.json());
    }
 

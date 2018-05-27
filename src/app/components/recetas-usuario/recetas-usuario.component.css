@@ -1,0 +1,86 @@
+.contenedor {
+  padding: 5%;
+  height: 100%;
+  width: 100%;
+}
+
+.titulo{
+    font-size: 2.5em;
+}
+
+.contenedorCartas {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: center;
+}
+
+.imagenCarta {
+  width: 136px;
+  height: 136px;
+  /* border-radius: 12px; */
+}
+
+.carta {
+  max-width: 268px;
+  min-width: 268px;
+  height: 285px;
+  margin: 20px;
+  padding: 5px;
+  text-align: center;
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+  border: solid #fff 2px;
+  background-color: #fff;
+}
+
+.cuerpoCarta {
+  /* background-color: red; */
+  /* margin-left: auto;
+  margin-right: auto;
+  max-height: 238px; */
+}
+
+.facil {
+  background-color: #3DAE2B;
+  color: #fff;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 2px;
+}
+
+.mediana {
+  background-color: #00A6CE;
+  color: #fff;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 2px;
+}
+
+.dificil {
+  background-color: #FF4D00;
+  color: #fff;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 2px;
+}
+
+.btn {
+  color: #f17a77;
+  border: #f17a77 1px solid;
+  font-size: 99%;
+}
+
+.btn:hover {
+  color: #fff;
+  background-color: #f17a77;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.25), 0 8px 8px rgba(0, 0, 0, 0.22);
+  font-size: 101%;
+}
+
+

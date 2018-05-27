@@ -10,7 +10,7 @@ import { LoginService } from "../../services/login.service";
   styleUrls: ['./lista-usuarios.component.css']
 })
 export class ListaUsuariosComponent implements OnInit {
-
+  url: string = "http://localhost:3800/api/recetaImageFile/";
   usuarios:Usuario[] = [];
   user:Usuario;
   userConect:Usuario;
