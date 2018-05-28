@@ -86,7 +86,11 @@
           <div class="tituSeguidos">Seguidores</div>
           <div class="cerrarSeguidos" (click)='salirSeguidores()' >Cerrar <div class="cerrarIcon"></div> </div>
         </div>
-
+        <div class="bloqueUsers">
+          <div *ngFor="let usuario of userSeguidores" class="userZone">
+            <app-min-usuario (cerrarVentana)='cerrarVentanas($event)' [usuario]='usuario'></app-min-usuario>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -43,6 +43,14 @@ export class UsuarioService {
      return this.userSeguidos;
    }
 
+   setuserSeguidores(users:Array<Usuario>){
+     this.userSeguidores = users;
+   }
+
+   getUserSeguidores(){
+     return this.userSeguidores;
+   }
+
    getAllUsuarios(){     
      let url = `${this.URL}${this.URLgetAllUsuarios}`;     
      return this.http.get(url).map(res => res.json());

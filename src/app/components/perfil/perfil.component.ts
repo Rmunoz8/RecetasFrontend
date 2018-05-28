@@ -46,37 +46,52 @@ export class PerfilComponent implements OnInit {
             ) {
     this.verSigue = false;
     this.editarPerfil = false;
-    this.verSeguidores = false;    
+    this.verSeguidores = false;
     this.propio = false;
     let ctx = this;
+
     this.userConect = this._login.getDatosUser();
+
     this.activateRoute.params.subscribe(params => {
+
       this._userService.getUsuario(params['id']).subscribe(data => {
+
         this.userPerfil = data.usuario;
+
         if (this.userPerfil._id === this.userConect._id) {
           this.propio = true;
           this.userConect = data.usuario;
           this.userConect.password = "";
         }
+
         this._userService.setUserSelect(data.usuario);
+
         this._userService.getSeguidosUser(data.usuario._id).subscribe(follows => {
+
           this._userService.setNumSeguidos(follows.follows.length);
-          ctx.userSeguidos = [];          
+          ctx.userSeguidos = [];
+
           for (let i = 0; i < follows.follows.length; i++) {
             ctx.userSeguidos.push(follows.follows[i].followed);
           }
           this._userService.setuserSeguidos(this.userSeguidos);
         });
-          ctx.userSeguidores = [];
+
         this._userService.getSeguidoresUser(data.usuario._id).subscribe(followers => {
+
+          this._userService.setnumSeguidores(followers.follows.length);          
+          ctx.userSeguidores = [];
+
           for (let i = 0; i < followers.follows.length; i++) {
-            ctx.userSeguidores.push(followers.follows[i].followed);
+            ctx.userSeguidores.push(followers.follows[i].usuario);
           }
-          this._userService.setnumSeguidores(followers.follows.length);
+          this._userService.setuserSeguidores(this.userSeguidores);
         });
 
       });
+
     });
+
    }
 
   ngOnInit() {
@@ -139,7 +154,7 @@ export class PerfilComponent implements OnInit {
     this.sigue = this._userService.getNumSeguidos();
     this.seguidores = this._userService.getnumSeguidores();
     this.userSeguidos = this._userService.getUserSeguidos();
-    // this.userSeguidores = this._userService.getUserSeguidores
+    this.userSeguidores = this._userService.getUserSeguidores();
   }
 
 
@@ -169,6 +184,8 @@ export class PerfilComponent implements OnInit {
   }
   abrirSeguidores(){    
     this.verSeguidores = true;
+    console.log(`Seguidores -> ${this.userSeguidores} `);
+    
   }
 
   cerrarVentanas(event){
