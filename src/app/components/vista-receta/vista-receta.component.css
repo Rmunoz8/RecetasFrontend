@@ -11,21 +11,8 @@
     margin-left: 10px;    
 }
 
-/* .usuario{
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-    cursor: pointer;
-    background-color: #f17a77;
-    border-radius: 12px;
-}
-.usuario:hover{
-    color: #f17a77;
-} */
-
 .usuario{
     padding: 5px;
-    background-color: #f17a77;
     border-radius: .25rem;
     transition: 0.2s;
     cursor: pointer;
@@ -35,15 +22,6 @@
     align-items: center;
 }
 
-.usuario:hover{
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.25),
-    0 8px 8px rgba(0, 0, 0, 0.22);
-    font-size: 80%;
-}
-
-.usuario:focus{
-    outline: none;
-}
 
 .cabecera{
     position: fixed;  

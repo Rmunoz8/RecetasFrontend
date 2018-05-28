@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { UsuarioService } from "../../services/usuario.service";
 import { SnotifyService } from "ng-snotify";
 import { Usuario } from "../../interfaces/usuario.interfaces";
+import { LoginService } from "../../services/login.service";
 
 @Component({
   selector: 'app-btn-seguir',
@@ -10,13 +11,16 @@ import { Usuario } from "../../interfaces/usuario.interfaces";
 })
 export class BtnSeguirComponent implements OnInit {
 
+  userLog: Usuario;
   pulsado = false;
   @Input('usuario') user: Usuario;
   seguido = null;
+  propio = null;
   esSeguido;
   constructor(
     private _userService:UsuarioService,
-    private _snotifyService: SnotifyService
+    private _snotifyService: SnotifyService,
+    private _loginService: LoginService
   ) {
 
 
@@ -24,6 +28,15 @@ export class BtnSeguirComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => {
+
+      this.userLog = this._loginService.getDatosUser()
+
+      if(this.userLog._id === this.user._id){
+        this.propio = true;
+      }else{
+        this.propio = false;
+      }
+
       this._userService.esSeguido(this.user._id).subscribe(datos => {
 
         if (datos.estado == true) {
