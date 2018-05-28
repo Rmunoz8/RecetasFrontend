@@ -14,9 +14,14 @@ export class UsuarioService {
   URLfollow: string = '/follow';
   URLnoFollow: string = '/unFollow';
   URLesSeguido: string = "/esSeguido";
+  URLgetFollows: string = '/myFollows/';
+  URLgetFollowers: string = '/yourFollows/';
 
   userSelect = "";
   user:Usuario;
+
+  numSeguidos;
+  numSeguidores;
 
   constructor(private http:Http,
   private _loginService:LoginService) {
@@ -61,6 +66,14 @@ export class UsuarioService {
 
    }
 
+   setnumSeguidores(num){
+    this.numSeguidores = num;
+   }
+
+   getnumSeguidores(){
+     return this.numSeguidores;
+   }
+
    getUserSelect(){
      return this.userSelect;
    }
@@ -72,6 +85,14 @@ export class UsuarioService {
    getUsuario(id:string){
      let url = `${this.URL}${this.URLuser}/${id}`
      return this.http.get(url).map(res=>res.json());
+   }
+
+   setNumSeguidos(num){
+    this.numSeguidos = num;
+   }
+
+   getNumSeguidos(){
+     return this.numSeguidos;
    }
 
    seguirUsuario(id:string){
@@ -108,6 +129,22 @@ export class UsuarioService {
      return this.http.post(url, body, {headers}).map(res =>res.json());
 
    }
+
+  getSeguidosUser(id: string) {
+
+    let url = `${this.URL}${this.URLgetFollows}${id}`;
+
+    return this.http.get(url).map(res =>res.json());
+
+  }
+
+  getSeguidoresUser(id:string){
+
+    let url = `${this.URL}${this.URLgetFollowers}${id}`;
+
+    return this.http.get(url).map(res =>res.json());
+
+  }
 
    esSeguido(id:string){
 

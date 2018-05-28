@@ -15,7 +15,8 @@ import { UploadService } from "../../services/upload.service";
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
-
+  seguidores;
+  sigue;
   actualizar: FormGroup;
   editarPerfil:boolean = false;
   user:Usuario;
@@ -40,7 +41,17 @@ export class PerfilComponent implements OnInit {
           this.userConect = data.usuario;
           this.userConect.password = "";          
         }
-        this._userService.setUserSelect(this.user._id);
+        this._userService.setUserSelect(data.usuario._id);
+        this._userService.getSeguidosUser(data.usuario._id).subscribe(follows =>{
+          console.log(`data follows -> ${follows.follows.length} `);
+          this._userService.setNumSeguidos(follows.follows.length);
+        });
+
+        this._userService.getSeguidoresUser(data.usuario._id).subscribe(followers=>{
+          console.log(`Followers -> ${followers.follows.length}`);
+          this._userService.setnumSeguidores(followers.follows.length);
+        });
+
       });
     });
    }
@@ -101,7 +112,10 @@ export class PerfilComponent implements OnInit {
 
   ngDoCheck() {
     this.user = this._login.getDatosUser();
+    this.sigue = this._userService.getNumSeguidos();
+    this.seguidores = this._userService.getnumSeguidores();
   }
+
 
   public filesToUpload: Array<File>
   fileChangeEvent(fileInput: any){

@@ -49,8 +49,10 @@
             </div>
           </div>
           <div class="bloqueFoto">
-            <img class="fotoPerfil" src="{{url+userConect.image}}">
-            <input type="file" (change)='fileChangeEvent($event)'>
+            <label for="upload" ><img class="fotoPerfilEdit card" src="{{url+userConect.image}}"></label>
+            <label class="btnUpload" for="upload">Subir imagen <div class="imgIcon"></div> </label>
+            <input type="file" id='upload'(change)='fileChangeEvent($event)'>
+            <!-- <input type="text" formControlName='imagen' [(ngModel)]='userConect.image' > -->
           </div>
         </div>
         <div class="alerta">Rellena todos los campos</div>
@@ -58,25 +60,27 @@
     </div>
   </div>
 
-
-
-
-
-
-
-  <div class="jumbotron" *ngIf="!editarPerfil" >
+  <div class="jumbotron" *ngIf="!editarPerfil">
     <div class="principal">
       <div class="grupo">
-        <div class="editar" *ngIf="propio" (click)='editar()' >Editar <div class="ediarIcono" ></div> </div>        
-          <div class="nombre">{{userPerfil.nick | uppercase }}</div>
-          <div class="correo">{{userPerfil.email}}</div>
-        <app-btn-seguir [usuario]='user' *ngIf="!propio"></app-btn-seguir>
+        <div class="editar" *ngIf="propio" (click)='editar()'>Editar
+          <div class="ediarIcono"></div>
+        </div>
+        <div class="nombre">{{userPerfil.nick | uppercase }}</div>
+        <div class="correo">{{userPerfil.email}}</div>
+        <app-btn-seguir [usuario]='userPerfil' *ngIf="!propio"></app-btn-seguir>
       </div>
-      <img class="fotoPerfil" src="{{url+userPerfil.image}}">
+      <div class="bloqueSeguimiento">
+        <div class="segue">Sigue {{sigue}}</div>
+        <div class="segue">Seguidores {{seguidores}}</div>
+      </div>
+      <div class="bloqueFoto">
+        <img class="fotoPerfil card" src="{{url+userPerfil.image}}">
+      </div>
     </div>
   </div>
   <app-recetas-usuario [usuario]='userPerfil'></app-recetas-usuario>
-</div>
+  </div>
 
 
 

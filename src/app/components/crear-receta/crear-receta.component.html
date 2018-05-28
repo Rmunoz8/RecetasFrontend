@@ -10,6 +10,7 @@
       <option value="mediana">Media</option>
       <option value="dificil">Dificil</option>
     </select>
+
     <!-- <div class="ingredientes">
       <div class="btnIngredientes" (click)="anyadirIngrediente()"><span class="tooltiptext">Añadir Ingrediente</span></div>
       <div class="listaIngredientes">
@@ -37,14 +38,16 @@
     <div class="form-group">
     <div [froalaEditor] name='pasos' formControlName='pasos' [(ngModel)]='receta.pasos'>Introduce los pasos a seguir</div>
     </div>
-    <div class="jumbotron bloqueImagen ">
-      <label>Elige la imagen principal de tu receta!</label>
-      <input type="file" (change)='fileChangeEvent($event)' formControlName='imagen'>
-      <div *ngIf="receta.img" >
+    <div class="subidaImagen">
+      <label for="uploadImage" class="btnUpload">Subir imagen
+        <div class="imgIcon"></div>
+      </label>
+      <input type="file" id="uploadImage" (change)='fileChangeEvent($event)' formControlName='imagen'>
+      <div *ngIf="receta.img">
         <img class="imgReceta" src="{{url}}" alt="">
       </div>
     </div>
-    <div type="submit" *ngIf="formulario.invalid" class="btnCrearRecetaNo" (click)='envio()'>Crear Receta</div>    
+    <div type="submit"  *ngIf="formulario.invalid" class="btnCrearRecetaNo" (click)='envio()'>Crear Receta</div>    
     <button type="submit" *ngIf="formulario.valid" class="btnCrearReceta" [disabled]='formulario.invalid' >Crear Receta</button>    
   </form>
 </div>
