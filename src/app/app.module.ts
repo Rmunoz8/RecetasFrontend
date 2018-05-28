@@ -30,6 +30,7 @@ import { IngredienteComponent } from './components/ingrediente/ingrediente.compo
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { BtnSeguirComponent } from './components/btn-seguir/btn-seguir.component';
 import { RecetasUsuarioComponent } from './components/recetas-usuario/recetas-usuario.component';
+import { MinUsuarioComponent } from './components/min-usuario/min-usuario.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { RecetasUsuarioComponent } from './components/recetas-usuario/recetas-us
     PerfilComponent,
     BtnSeguirComponent,
     RecetasUsuarioComponent,
+    MinUsuarioComponent,
   ],
   imports: [
     BrowserModule,

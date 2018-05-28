@@ -1,0 +1,9 @@
+<div class="bloque">
+  <div class="contenedorNombre">
+    <span class="nombreUsuario" (click)="ifPerfil(user._id)">{{user.nick}}</span>
+  </div>
+  <div class="icon">
+    <img class="avatar" (click)="ifPerfil(user._id)" alt="" src="{{url+user.image}}">
+    <app-btn-seguir [usuario]='user'></app-btn-seguir>
+  </div>
+</div>

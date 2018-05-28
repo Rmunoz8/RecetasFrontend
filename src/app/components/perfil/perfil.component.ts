@@ -15,13 +15,26 @@ import { UploadService } from "../../services/upload.service";
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
+  userSeguidos:Array<Usuario> = [];
+  userSeguidores:Array<Usuario> = [];
+  verSeguidores: boolean = false;
   seguidores;
   sigue;
   actualizar: FormGroup;
+  verSigue:boolean = false;
   editarPerfil:boolean = false;
   user:Usuario;
   userConect:Usuario;
-  userPerfil:Usuario;
+  userPerfil:Usuario = {
+    _id: "",
+    apellido: "",
+    email: "Correo",
+    image: "",
+    nick: "Nick",
+    nombre: "Nombre",
+    password: "",
+    rol: ""
+  }
   propio: boolean;
   url: string = "http://localhost:3800/api/recetaImageFile/";
 
@@ -31,24 +44,34 @@ export class PerfilComponent implements OnInit {
               private _userService: UsuarioService,
               private _uploadService: UploadService
             ) {
-                this.propio = false;
-                this.userConect = this._login.getDatosUser();
+    this.verSigue = false;
+    this.editarPerfil = false;
+    this.verSeguidores = false;    
+    this.propio = false;
+    let ctx = this;
+    this.userConect = this._login.getDatosUser();
     this.activateRoute.params.subscribe(params => {
       this._userService.getUsuario(params['id']).subscribe(data => {
         this.userPerfil = data.usuario;
-        if(this.userPerfil._id === this.userConect._id){
+        if (this.userPerfil._id === this.userConect._id) {
           this.propio = true;
           this.userConect = data.usuario;
-          this.userConect.password = "";          
+          this.userConect.password = "";
         }
-        this._userService.setUserSelect(data.usuario._id);
-        this._userService.getSeguidosUser(data.usuario._id).subscribe(follows =>{
-          console.log(`data follows -> ${follows.follows.length} `);
+        this._userService.setUserSelect(data.usuario);
+        this._userService.getSeguidosUser(data.usuario._id).subscribe(follows => {
           this._userService.setNumSeguidos(follows.follows.length);
+          ctx.userSeguidos = [];          
+          for (let i = 0; i < follows.follows.length; i++) {
+            ctx.userSeguidos.push(follows.follows[i].followed);
+          }
+          this._userService.setuserSeguidos(this.userSeguidos);
         });
-
-        this._userService.getSeguidoresUser(data.usuario._id).subscribe(followers=>{
-          console.log(`Followers -> ${followers.follows.length}`);
+          ctx.userSeguidores = [];
+        this._userService.getSeguidoresUser(data.usuario._id).subscribe(followers => {
+          for (let i = 0; i < followers.follows.length; i++) {
+            ctx.userSeguidores.push(followers.follows[i].followed);
+          }
           this._userService.setnumSeguidores(followers.follows.length);
         });
 
@@ -57,7 +80,9 @@ export class PerfilComponent implements OnInit {
    }
 
   ngOnInit() {
-
+    this.verSigue = false;
+    this.editarPerfil = false;
+    this.verSeguidores = false;  
     this.userConect.password = "";
 
     this.actualizar = new FormGroup({
@@ -79,7 +104,6 @@ export class PerfilComponent implements OnInit {
 
   editar(){
     this.editarPerfil = true;
-    console.log(`EDITAR-> ${this.user.nick} `);
   }
 
   save(){    
@@ -114,6 +138,8 @@ export class PerfilComponent implements OnInit {
     this.user = this._login.getDatosUser();
     this.sigue = this._userService.getNumSeguidos();
     this.seguidores = this._userService.getnumSeguidores();
+    this.userSeguidos = this._userService.getUserSeguidos();
+    // this.userSeguidores = this._userService.getUserSeguidores
   }
 
 
@@ -127,6 +153,28 @@ export class PerfilComponent implements OnInit {
       this.userConect.image = res.usuario.image;
       console.log(`Después -> ${this.userConect.image} `);      
     });
+  }
+
+  salirSeguidos(){
+    this.verSigue = false;
+  }
+  salirSeguidores(){
+    this.verSeguidores = false;
+  }
+
+  abrirSeguidos(){
+    this.verSigue = true;
+    console.log(`Seguidos -> ${this.userSeguidos} `);
+    
+  }
+  abrirSeguidores(){    
+    this.verSeguidores = true;
+  }
+
+  cerrarVentanas(event){
+    this.verSeguidores = false;
+    this.verSigue = false;
+
   }
 
 }

@@ -3,6 +3,7 @@ import { Usuario } from "../../interfaces/usuario.interfaces";
 import { RecetaService } from "../../services/receta.service";
 import { Receta } from "../../interfaces/receta.interface";
 import { Router } from '@angular/router';
+import { UsuarioService } from "../../services/usuario.service";
 
 @Component({
   selector: 'app-recetas-usuario',
@@ -17,18 +18,22 @@ export class RecetasUsuarioComponent implements OnInit {
   url: string = "http://localhost:3800/api/recetaImageFile/";
   constructor(
     private _recetaService:RecetaService,
-    private router: Router    
+    private router: Router,
+    private _userService: UsuarioService  
   ) {
 
 
    }
 
   ngOnInit() {
+    this.user = this._userService.getUserSelect();
     setTimeout(() => {
       console.log(`NICK-> ${this.user.nick}
 ID-> ${this.user._id} `);
 
       this._recetaService.getRecetasUser(this.user._id).subscribe(data => {
+        console.log(`RECETAS!!! -> ${JSON.stringify(data)} `);
+        
         if (data.recetas.length === 0) {
           this.vacio = true
         } else {
@@ -36,7 +41,11 @@ ID-> ${this.user._id} `);
           this.recetas = data.recetas;
         }
       });
-    }, 1000);
+    }, 2000);
+  }
+
+  ngDoCheck() {
+    this.user = this._userService.getUserSelect();
   }
 
   verReceta(i: number) {

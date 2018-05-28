@@ -33,10 +33,10 @@ export class ListaUsuariosComponent implements OnInit {
     this.router.navigate(['/perfil', id]);    
   }
 
-  userSelect(id: string) {
-    console.log(`User seleccionado -> ${id} `);
+  // userSelect(id: string) {
+  //   console.log(`User seleccionado -> ${id} `);
     
-    this._usuarioService.setUserSelect(id);
-  }
+  //   this._usuarioService.setUserSelect(id);
+  // }
 
 }

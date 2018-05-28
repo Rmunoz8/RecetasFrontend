@@ -17,11 +17,15 @@ export class UsuarioService {
   URLgetFollows: string = '/myFollows/';
   URLgetFollowers: string = '/yourFollows/';
 
-  userSelect = "";
+  userSelect: Usuario;
   user:Usuario;
 
   numSeguidos;
   numSeguidores;
+
+  userSeguidos:Array<Usuario>;
+  userSeguidores:Array<Usuario>;
+
 
   constructor(private http:Http,
   private _loginService:LoginService) {
@@ -29,6 +33,14 @@ export class UsuarioService {
     this.user = this._loginService.getDatosUser();
     console.log(`User Identificado??? -> ${JSON.stringify(this.user)} `);
     
+   }
+
+   setuserSeguidos(users:Array<Usuario>){
+     this.userSeguidos = users;
+   }
+
+   getUserSeguidos(){
+     return this.userSeguidos;
    }
 
    getAllUsuarios(){     
@@ -78,8 +90,10 @@ export class UsuarioService {
      return this.userSelect;
    }
 
-   setUserSelect(id:string){
-     this.userSelect = id;
+   setUserSelect(user:Usuario){
+     console.log(`USER SELECT -> ${JSON.stringify(user)} `);
+     
+     this.userSelect = user;
    }
 
    getUsuario(id:string){

@@ -60,6 +60,38 @@
     </div>
   </div>
 
+<div class="jumbotron" *ngIf="verSigue">
+  <div class="overlay">
+    <div class="marcoSeguir">
+      <div class="principalSeguidores">
+        <div class="cabeceraSeguidos">
+          <div class="tituSeguidos">Siguiendo</div>
+          <div class="cerrarSeguidos" (click)='salirSeguidos()' >Cerrar <div class="cerrarIcon"></div> </div>
+        </div>
+        <div class="bloqueUsers">
+          <div *ngFor="let usuario of userSeguidos" class="userZone">
+            <app-min-usuario (cerrarVentana)='cerrarVentanas($event)' [usuario]='usuario'></app-min-usuario>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="jumbotron" *ngIf="verSeguidores">
+  <div class="overlay">
+    <div class="marcoSeguir">
+      <div class="principalSeguidores">
+        <div class="cabeceraSeguidos">
+          <div class="tituSeguidos">Seguidores</div>
+          <div class="cerrarSeguidos" (click)='salirSeguidores()' >Cerrar <div class="cerrarIcon"></div> </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
   <div class="jumbotron" *ngIf="!editarPerfil">
     <div class="principal">
       <div class="grupo">
@@ -71,8 +103,8 @@
         <app-btn-seguir [usuario]='userPerfil' *ngIf="!propio"></app-btn-seguir>
       </div>
       <div class="bloqueSeguimiento">
-        <div class="segue">Sigue {{sigue}}</div>
-        <div class="segue">Seguidores {{seguidores}}</div>
+        <div class="segue" (click)='abrirSeguidos()' >Sigue {{sigue}}</div>
+        <div class="segue" (click)='abrirSeguidores()' >Seguidores {{seguidores}}</div>
       </div>
       <div class="bloqueFoto">
         <img class="fotoPerfil card" src="{{url+userPerfil.image}}">

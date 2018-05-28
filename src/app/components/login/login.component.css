@@ -7,6 +7,7 @@
   justify-content: flex-start;
   padding: 5%;
   background: url("../../../assets/img/fondo_1.jpg") no-repeat center;  
+  margin-top: 50px;
 }
 .titulo {
   font-size: 300%;
