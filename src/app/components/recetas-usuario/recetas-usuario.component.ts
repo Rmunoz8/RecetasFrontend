@@ -26,22 +26,24 @@ export class RecetasUsuarioComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.user = this._userService.getUserSelect();
-    setTimeout(() => {
+    // this.user = this._userService.getUserSelect();
+    // setTimeout(() => {
+      console.log(`USUARIO RECETAS -> ${JSON.stringify(this.user)} `);
+      
       console.log(`NICK-> ${this.user.nick}
 ID-> ${this.user._id} `);
 
-      this._recetaService.getRecetasUser(this.user._id).subscribe(data => {
-        console.log(`RECETAS!!! -> ${JSON.stringify(data)} `);
+      // this._recetaService.getRecetasUser(this.user._id).subscribe(data => {
+      //   console.log(`RECETAS!!! -> ${JSON.stringify(data)} `);
         
-        if (data.recetas.length === 0) {
-          this.vacio = true
-        } else {
-          this.vacio = false;
-          this.recetas = data.recetas;
-        }
-      });
-    }, 2000);
+      //   if (data.recetas.length === 0) {
+      //     this.vacio = true
+      //   } else {
+      //     this.vacio = false;
+      //     this.recetas = data.recetas;
+      //   }
+      // });
+    // }, 2000);
   }
 
   ngDoCheck() {
