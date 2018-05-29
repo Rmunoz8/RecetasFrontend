@@ -12,8 +12,8 @@ import { UsuarioService } from "../../services/usuario.service";
 })
 export class RecetasUsuarioComponent implements OnInit {
 
-  @Input('usuario') user: Usuario;  
-  recetas:Receta[] = [];
+  @Input('recetas') recetas: Receta;  
+  // recetas:Receta[] = [];
   vacio: boolean;
   url: string = "http://localhost:3800/api/recetaImageFile/";
   constructor(
@@ -26,26 +26,9 @@ export class RecetasUsuarioComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.user = this._userService.getUserSelect();
-    setTimeout(() => {
-      console.log(`NICK-> ${this.user.nick}
-ID-> ${this.user._id} `);
-
-      this._recetaService.getRecetasUser(this.user._id).subscribe(data => {
-        console.log(`RECETAS!!! -> ${JSON.stringify(data)} `);
-        
-        if (data.recetas.length === 0) {
-          this.vacio = true
-        } else {
-          this.vacio = false;
-          this.recetas = data.recetas;
-        }
-      });
-    }, 2000);
   }
 
   ngDoCheck() {
-    this.user = this._userService.getUserSelect();
   }
 
   verReceta(i: number) {

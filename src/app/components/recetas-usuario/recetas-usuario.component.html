@@ -1,8 +1,7 @@
 <div class="contenedor">
   <div class="titulo">Recetas de {{user.nick | uppercase }}   <div class="recipe"></div> </div>
   <hr>
-  <!-- <div class="vacio" *ngIf="vacio" >VACIO!!</div>
-    <div class="recetas" *ngIf="!vacio" >NO ESTÁ VACIO</div> -->
+  <!-- <div class="vacio" *ngIf='recetas' >ESTÁ VACIO</div> -->
     <div class="contenedorCartas">
     <div *ngFor="let receta of recetas" class="carta">
       <h5>{{receta.nick}}</h5>

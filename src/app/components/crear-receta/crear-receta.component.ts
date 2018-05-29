@@ -35,6 +35,8 @@ export class CrearRecetaComponent implements OnInit {
     nick: ""
   }
 
+  public options: Object;
+
   constructor(private _recetaService:RecetaService,
               private router:Router,
               private route:ActivatedRoute,
@@ -43,7 +45,8 @@ export class CrearRecetaComponent implements OnInit {
               private _snotifyService: SnotifyService,
               private _uploadService: UploadService
             ) {
-
+    this.user = this._loginService.getDatosUser();
+    console.log(this.user);
     // Obtenemos id de la URL
     this.route.params.subscribe( parametros=>{
       this.id = parametros['id']; 
@@ -58,11 +61,32 @@ export class CrearRecetaComponent implements OnInit {
                                   this.dificultadSeleccionada]),      
     });
     console.log("Formulario creado");
+    this.options={
+      placeholderText: '¡Cuéntanos tu receta!',
+        language: 'es',
+          // Set the image upload parameter.
+          imageUploadParam: 'image',
+
+            // Set the image upload URL.
+              imageUploadURL: `http://localhost:3800/api/upImageReceta`,
+
+              // Set request type.
+              imageUploadMethod: 'POST',
+
+                // Set max image size to 5MB.
+              imageMaxSize: 5 * 1024 * 1024,
+
+                  // Allow to upload PNG and JPG.
+              imageAllowedTypes: ['jpeg', 'jpg', 'png'],
+
+
+              toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '|', 'fontFamily', 'fontSize', 'color', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '-', 'insertLink', 'insertImage', 'insertVideo', 'embedly', 'insertFile', 'insertTable', '|', 'specialCharacters', 'insertHR', 'selectAll', 'clearFormatting', '|', 'print', 'spellChecker', 'help', 'html', '|', 'undo', 'redo']
+
+    }
    }
 
   ngOnInit() {
-    this.user = this._loginService.getDatosUser();        
-    console.log(this.user);
+
     
   }
 

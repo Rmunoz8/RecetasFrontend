@@ -1,11 +1,13 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Usuario } from "../../interfaces/usuario.interfaces";
-import { Route, ActivatedRoute, Params } from "@angular/router";
+import { Route, ActivatedRoute, Params, flatten } from "@angular/router";
 import { LoginService } from "../../services/login.service";
 import { UsuarioService } from "../../services/usuario.service";
 import { NG_VALIDATORS, Validator, Validators, AbstractControl, ValidatorFn, FormGroup, FormControl } from "@angular/forms";
 import { SnotifyService } from "ng-snotify";
 import { UploadService } from "../../services/upload.service";
+import { Receta } from "../../interfaces/receta.interface";
+import { RecetaService } from "../../services/receta.service";
 
 
 
@@ -15,12 +17,13 @@ import { UploadService } from "../../services/upload.service";
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
+  recetas:Array<Receta>;
   userSeguidos:Array<Usuario> = [];
   userSeguidores:Array<Usuario> = [];
-  verSeguidores: boolean = false;
   seguidores;
   sigue;
   actualizar: FormGroup;
+  verSeguidores: boolean = false;  
   verSigue:boolean = false;
   editarPerfil:boolean = false;
   user:Usuario;
@@ -42,7 +45,8 @@ export class PerfilComponent implements OnInit {
               private activateRoute: ActivatedRoute,
               private _snotifyService: SnotifyService,              
               private _userService: UsuarioService,
-              private _uploadService: UploadService
+              private _uploadService: UploadService,
+              private _recetaService: RecetaService
             ) {
     this.verSigue = false;
     this.editarPerfil = false;
@@ -63,6 +67,11 @@ export class PerfilComponent implements OnInit {
           this.userConect = data.usuario;
           this.userConect.password = "";
         }
+
+        this._recetaService.getRecetasUser(data.usuario._id).subscribe(recetas=>{
+          console.log(`Recetas user -> ${JSON.stringify(recetas.recetas)} `);
+          this._recetaService.setRecetas(recetas.recetas);
+        });
 
         this._userService.setUserSelect(data.usuario);
 
@@ -92,12 +101,15 @@ export class PerfilComponent implements OnInit {
 
     });
 
+
+
    }
 
   ngOnInit() {
     this.verSigue = false;
     this.editarPerfil = false;
     this.verSeguidores = false;  
+    this.propio = false;
     this.userConect.password = "";
 
     this.actualizar = new FormGroup({
@@ -155,6 +167,7 @@ export class PerfilComponent implements OnInit {
     this.seguidores = this._userService.getnumSeguidores();
     this.userSeguidos = this._userService.getUserSeguidos();
     this.userSeguidores = this._userService.getUserSeguidores();
+    this.recetas = this._recetaService.getArrayRecetas();
   }
 
 
