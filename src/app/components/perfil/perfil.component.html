@@ -48,7 +48,7 @@
               <input class="textoInput" formControlName='password2' type="password" [(ngModel)]="userConect.password2">
             </div>
           </div>
-          <div class="bloqueFoto">
+          <div class="bloqueFotoEdit">
             <label for="upload" ><img class="fotoPerfilEdit card" src="{{url+userConect.image}}"></label>
             <label class="btnUpload" for="upload">Subir imagen <div class="imgIcon"></div> </label>
             <input type="file" id='upload'(change)='fileChangeEvent($event)'>
@@ -101,13 +101,15 @@
         <div class="editar" *ngIf="propio" (click)='editar()'>Editar
           <div class="ediarIcono"></div>
         </div>
-        <div class="nombre">{{userPerfil.nick | uppercase }}</div>
-        <div class="correo">{{userPerfil.email}}</div>
         <app-btn-seguir [usuario]='userPerfil' *ngIf="!propio"></app-btn-seguir>
+        <div class="datosUser">
+          <div class="nombre">{{userPerfil.nick | uppercase }}</div>
+          <div class="correo" [title]="userPerfil.email" >{{userPerfil.email}}</div>
+        </div>
       </div>
       <div class="bloqueSeguimiento">
-        <div class="segue" (click)='abrirSeguidos()' >Sigue {{sigue}}</div>
-        <div class="segue" (click)='abrirSeguidores()' >Seguidores {{seguidores}}</div>
+        <div class="segue" (click)='abrirSeguidos()' >Sigue <div class="numero">{{sigue}}</div></div>
+        <div class="segue" (click)='abrirSeguidores()' >Seguidores <div class="numero">{{seguidores}}</div></div>
       </div>
       <div class="bloqueFoto">
         <img class="fotoPerfil card" src="{{url+userPerfil.image}}">

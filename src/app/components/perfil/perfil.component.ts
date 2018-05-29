@@ -134,8 +134,10 @@ export class PerfilComponent implements OnInit {
   }
 
   save(){    
+    console.log(`Cambio de perfil`);
     
     this._userService.userUpdate(this.userConect).subscribe(datos=>{
+      console.log(`Cambio de perfil2`);      
       if(datos.message){
         this._snotifyService.error(datos.message, {
           timeout: 2000,
