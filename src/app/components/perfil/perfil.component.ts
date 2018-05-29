@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import { Usuario } from "../../interfaces/usuario.interfaces";
 import { Route, ActivatedRoute, Params } from "@angular/router";
 import { LoginService } from "../../services/login.service";
@@ -48,6 +48,8 @@ export class PerfilComponent implements OnInit {
               private _uploadService: UploadService,
               private _recetaService: RecetaService
             ) {
+    console.log(`Constructor`);
+    this.cerrarVentanas();
     this.verSigue = false;
     this.editarPerfil = false;
     this.verSeguidores = false;
@@ -69,7 +71,6 @@ export class PerfilComponent implements OnInit {
         }
 
         this._recetaService.getRecetasUser(data.usuario._id).subscribe(recetas=>{
-          console.log(`Recetas user -> ${JSON.stringify(recetas.recetas)} `);
           this._recetaService.setRecetas(recetas.recetas);
         });
 
@@ -106,6 +107,8 @@ export class PerfilComponent implements OnInit {
    }
 
   ngOnInit() {
+    console.log(`OnInit`);
+    this.cerrarVentanas();
     this.verSigue = false;
     this.editarPerfil = false;
     this.verSeguidores = false;  
@@ -134,10 +137,8 @@ export class PerfilComponent implements OnInit {
   }
 
   save(){    
-    console.log(`Cambio de perfil`);
     
     this._userService.userUpdate(this.userConect).subscribe(datos=>{
-      console.log(`Cambio de perfil2`);      
       if(datos.message){
         this._snotifyService.error(datos.message, {
           timeout: 2000,
@@ -170,43 +171,45 @@ export class PerfilComponent implements OnInit {
     this.userSeguidos = this._userService.getUserSeguidos();
     this.userSeguidores = this._userService.getUserSeguidores();
     this.recetas = this._recetaService.getArrayRecetas();
+    this.verSeguidores = this._login.getPulsado();
+    this.verSigue = this._login.getPulsado();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.cerrarVentanas();
   }
 
 
   public filesToUpload: Array<File>
   fileChangeEvent(fileInput: any){
     this.filesToUpload = <Array<File>>fileInput.target.files;
-    console.log(this.filesToUpload);
     this._uploadService.makeFileRequest(`http://localhost:3800/api/userImage/${this.userConect._id}`, [], this.filesToUpload, 'image', this.userConect._id)
     .then((res:any)=>{
-      console.log(`Antes -> ${this.userConect.image} `);
       this.userConect.image = res.usuario.image;
-      console.log(`Después -> ${this.userConect.image} `);      
     });
   }
 
   salirSeguidos(){
+    this._login.setPulsado(false);            
     this.verSigue = false;
   }
   salirSeguidores(){
+    this._login.setPulsado(false);        
     this.verSeguidores = false;
   }
 
   abrirSeguidos(){
+    this._login.setPulsado(true);
     this.verSigue = true;
-    console.log(`Seguidos -> ${this.userSeguidos} `);
-    
   }
   abrirSeguidores(){    
-    this.verSeguidores = true;
-    console.log(`Seguidores -> ${this.userSeguidores} `);
-    
+    this._login.setPulsado(true);    
+    this.verSeguidores = true;    
   }
 
-  cerrarVentanas(event){
+  cerrarVentanas(){
     this.verSeguidores = false;
     this.verSigue = false;
-
   }
 
 }

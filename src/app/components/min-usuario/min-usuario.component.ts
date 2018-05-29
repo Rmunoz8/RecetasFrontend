@@ -23,7 +23,7 @@ export class MinUsuarioComponent implements OnInit {
   ngOnInit() {
   }
   ifPerfil(id: string) {
-    this.cerrarVenta.emit(false);
+    this._loginService.setPulsado(false);
     setTimeout(() => {
       this.router.navigate(['/perfil', id]);
     }, 500);

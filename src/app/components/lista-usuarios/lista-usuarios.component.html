@@ -4,15 +4,7 @@
   <hr>
   <div>
     <div *ngFor="let usuario of usuarios" class="contenedorUsuairos">
-      <div class="bloque" *ngIf="usuario._id!=userConect._id">
-        <div class="contenedorNombre">
-          <span class="nombreUsuario" (click)="ifPerfil(usuario._id)">{{usuario.nick}}</span>
-        </div>
-        <div class="icon">
-          <img class="avatar" (click)="ifPerfil(usuario._id)" alt="" src="{{url+usuario.image}}">
-          <app-btn-seguir [usuario]='usuario' ></app-btn-seguir>
-        </div>
-      </div>
+      <app-min-usuario [usuario]='usuario' ></app-min-usuario>
     </div>
   </div>
 </div>

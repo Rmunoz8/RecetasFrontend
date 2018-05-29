@@ -58,7 +58,6 @@
       </form>
     </div>
   </div>
-
 <div class="jumbotron" *ngIf="verSigue">
   <div class="overlay">
     <div class="marcoSeguir">
@@ -76,7 +75,6 @@
     </div>
   </div>
 </div>
-
 <div class="jumbotron" *ngIf="verSeguidores">
   <div class="overlay">
     <div class="marcoSeguir">
@@ -94,7 +92,6 @@
     </div>
   </div>
 </div>
-
   <div class="jumbotron" *ngIf="!editarPerfil">
     <div class="principal">
       <div class="grupo">
@@ -116,7 +113,7 @@
       </div>
     </div>
   </div>
-  <app-recetas-usuario [recetas]='recetas'></app-recetas-usuario>
+  <app-recetas-usuario [usuario]='userPerfil' [recetas]='recetas'></app-recetas-usuario>
   </div>
 
 

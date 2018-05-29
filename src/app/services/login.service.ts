@@ -8,6 +8,7 @@ import 'rxjs/Rx';
 @Injectable()
 export class LoginService {
 
+  pulsado: boolean;
   URL: string = "http://localhost:3800/api";
   URLLogin: string = "/login";
   URLFollows: string = "/myFollows";
@@ -19,6 +20,14 @@ export class LoginService {
   constructor(private http:Http) {
     console.log("Servicio login listo");
     this.getDatosUser();
+   }
+
+   setPulsado(valor:boolean){
+     this.pulsado = valor;
+   }
+
+   getPulsado(){
+     return this.pulsado;
    }
 
    accesoUsuario(userLog){

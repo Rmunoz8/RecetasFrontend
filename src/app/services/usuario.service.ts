@@ -29,10 +29,7 @@ export class UsuarioService {
 
   constructor(private http:Http,
   private _loginService:LoginService) {
-    console.log("Servicio Usuarios listo");
     this.user = this._loginService.getDatosUser();
-    console.log(`User Identificado??? -> ${JSON.stringify(this.user)} `);
-    
    }
 
    setuserSeguidos(users:Array<Usuario>){

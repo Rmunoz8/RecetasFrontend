@@ -12,7 +12,19 @@ import { UsuarioService } from "../../services/usuario.service";
 })
 export class RecetasUsuarioComponent implements OnInit {
 
-  @Input('recetas') recetas: Receta;  
+  @Input('usuario') user: Usuario;
+
+  @Input('recetas') recetas: Receta = {
+    _id:"",
+    creado: new Date(),
+    dificultad: "",
+    img: "",
+    ingredientes: [],
+    nick: "Nick",
+    nombre: "Receta",
+    pasos:"",
+    usuario: "Usuario"
+  }
   // recetas:Receta[] = [];
   vacio: boolean;
   url: string = "http://localhost:3800/api/recetaImageFile/";
