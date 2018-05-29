@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Usuario } from "../../interfaces/usuario.interfaces";
-import { Route, ActivatedRoute, Params, flatten } from "@angular/router";
+import { Route, ActivatedRoute, Params } from "@angular/router";
 import { LoginService } from "../../services/login.service";
 import { UsuarioService } from "../../services/usuario.service";
 import { NG_VALIDATORS, Validator, Validators, AbstractControl, ValidatorFn, FormGroup, FormControl } from "@angular/forms";
