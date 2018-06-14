@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import { Usuario } from "../../interfaces/usuario.interfaces";
 import { Route, ActivatedRoute, Params } from "@angular/router";
 import { LoginService } from "../../services/login.service";
@@ -6,6 +6,8 @@ import { UsuarioService } from "../../services/usuario.service";
 import { NG_VALIDATORS, Validator, Validators, AbstractControl, ValidatorFn, FormGroup, FormControl } from "@angular/forms";
 import { SnotifyService } from "ng-snotify";
 import { UploadService } from "../../services/upload.service";
+import { Receta } from "../../interfaces/receta.interface";
+import { RecetaService } from "../../services/receta.service";
 
 
 
@@ -15,12 +17,13 @@ import { UploadService } from "../../services/upload.service";
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
+  recetas:Array<Receta>;
   userSeguidos:Array<Usuario> = [];
   userSeguidores:Array<Usuario> = [];
-  verSeguidores: boolean = false;
   seguidores;
   sigue;
   actualizar: FormGroup;
+  verSeguidores: boolean = false;  
   verSigue:boolean = false;
   editarPerfil:boolean = false;
   user:Usuario;
@@ -42,8 +45,10 @@ export class PerfilComponent implements OnInit {
               private activateRoute: ActivatedRoute,
               private _snotifyService: SnotifyService,              
               private _userService: UsuarioService,
-              private _uploadService: UploadService
+              private _uploadService: UploadService,
+              private _recetaService: RecetaService
             ) {
+    this.cerrarVentanas();
     this.verSigue = false;
     this.editarPerfil = false;
     this.verSeguidores = false;
@@ -62,7 +67,13 @@ export class PerfilComponent implements OnInit {
           this.propio = true;
           this.userConect = data.usuario;
           this.userConect.password = "";
+        }else{
+          this.propio = false;
         }
+
+        this._recetaService.getRecetasUser(data.usuario._id).subscribe(recetas=>{
+          this._recetaService.setRecetas(recetas.recetas);
+        });
 
         this._userService.setUserSelect(data.usuario);
 
@@ -92,12 +103,16 @@ export class PerfilComponent implements OnInit {
 
     });
 
+
+
    }
 
   ngOnInit() {
+    this.cerrarVentanas();
     this.verSigue = false;
     this.editarPerfil = false;
     this.verSeguidores = false;  
+    this.propio = false;
     this.userConect.password = "";
 
     this.actualizar = new FormGroup({
@@ -155,43 +170,46 @@ export class PerfilComponent implements OnInit {
     this.seguidores = this._userService.getnumSeguidores();
     this.userSeguidos = this._userService.getUserSeguidos();
     this.userSeguidores = this._userService.getUserSeguidores();
+    this.recetas = this._recetaService.getArrayRecetas();
+    this.verSeguidores = this._login.getPulsado();
+    this.verSigue = this._login.getPulsadoSeguir();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.cerrarVentanas();
   }
 
 
   public filesToUpload: Array<File>
   fileChangeEvent(fileInput: any){
     this.filesToUpload = <Array<File>>fileInput.target.files;
-    console.log(this.filesToUpload);
     this._uploadService.makeFileRequest(`http://localhost:3800/api/userImage/${this.userConect._id}`, [], this.filesToUpload, 'image', this.userConect._id)
     .then((res:any)=>{
-      console.log(`Antes -> ${this.userConect.image} `);
       this.userConect.image = res.usuario.image;
-      console.log(`Después -> ${this.userConect.image} `);      
     });
   }
 
   salirSeguidos(){
+    this._login.setPulsadoSeguir(false);            
     this.verSigue = false;
   }
   salirSeguidores(){
+    this._login.setPulsado(false);        
     this.verSeguidores = false;
   }
 
   abrirSeguidos(){
+    this._login.setPulsadoSeguir(true);
     this.verSigue = true;
-    console.log(`Seguidos -> ${this.userSeguidos} `);
-    
   }
   abrirSeguidores(){    
-    this.verSeguidores = true;
-    console.log(`Seguidores -> ${this.userSeguidores} `);
-    
+    this._login.setPulsado(true);    
+    this.verSeguidores = true;    
   }
 
-  cerrarVentanas(event){
+  cerrarVentanas(){
     this.verSeguidores = false;
     this.verSigue = false;
-
   }
 
 }

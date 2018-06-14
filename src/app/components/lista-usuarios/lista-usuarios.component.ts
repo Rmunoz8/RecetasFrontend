@@ -29,14 +29,8 @@ export class ListaUsuariosComponent implements OnInit {
   }
 
   ifPerfil(id:string){
-    console.log(`Usuario -> ${id} `);
     this.router.navigate(['/perfil', id]);    
   }
 
-  // userSelect(id: string) {
-  //   console.log(`User seleccionado -> ${id} `);
-    
-  //   this._usuarioService.setUserSelect(id);
-  // }
 
 }

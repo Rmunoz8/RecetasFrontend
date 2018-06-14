@@ -7,6 +7,9 @@ import 'rxjs/Rx';
 @Injectable()
 export class RecetaService {
 
+
+  recetas: Array<Receta>;
+
   URL: string = "http://localhost:3800/api";
   URLCrear: string = "/crearReceta";
   URLgetRecetas: string = "/dameRecetas";
@@ -14,7 +17,6 @@ export class RecetaService {
   URLrecetaUser: string = "/recetasUsuario/";
 
   constructor(private http:Http) {
-    console.log("Servicio Recetas listo");
    }
 
   neuevaReceta(receta: Receta) {
@@ -24,7 +26,6 @@ export class RecetaService {
       'Content-Type': 'application/json'
     });    
     return this.http.post( url, body, {headers} ).map( res=>{
-      console.log(res.json());
       return res.json();
     });
   }
@@ -42,6 +43,14 @@ export class RecetaService {
 
     let url = `${this.URL}${this.URLrecetaById}${i}`    
     return this.http.get(url).map(res=>res.json());
+   }
+
+   setRecetas(recetas:Array<Receta>){
+     this.recetas = recetas;
+   }
+
+   getArrayRecetas(){
+     return this.recetas;
    }
 
 }

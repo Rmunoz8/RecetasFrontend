@@ -10,33 +10,8 @@
       <option value="mediana">Media</option>
       <option value="dificil">Dificil</option>
     </select>
-
-    <!-- <div class="ingredientes">
-      <div class="btnIngredientes" (click)="anyadirIngrediente()"><span class="tooltiptext">Añadir Ingrediente</span></div>
-      <div class="listaIngredientes">
-        <div class="cabeceraIn">
-          <div class="eliminar" (click)="deleteAll()" *ngIf="receta.ingredientes.length >= 1" ></div>
-          <div class="nomIngre">Ingrediente</div>
-          <div class="cantidadIngre">Cantidad</div>
-        </div>
-        <div class="tablaIngredientes">
-          <div class="nuevoIngrediente"  *ngFor="let ingre of receta.ingredientes; let i = 'index'">
-            <!-- <div class="contenidoIngre in_{{i}}"> 
-              <div class="eliminar" (click)="deleteOne(i)"></div>
-              <div class="nomIngre">
-                <input type="text" class="textIngre" formControlName='ingredientes' ([ngModel])='ingre.nombre' [placeholder]="ingre.nombre">
-              </div>
-              <div class="cantidadIngre">
-                <input type="text" class="textIngre" formControlName='ingredientes' ([ngModel])='ingre.cantidad' [placeholder]="ingre.cantidad">
-              </div>
-            </div> -->
-           <!-- <app-ingrediente></app-ingrediente>
-          </div>
-        </div>
-      </div>
-    </div> -->
     <div class="form-group">
-    <div [froalaEditor] name='pasos' formControlName='pasos' [(ngModel)]='receta.pasos'>Introduce los pasos a seguir</div>
+    <div [froalaEditor]='options' name='pasos' formControlName='pasos' [(ngModel)]='receta.pasos'>Introduce los pasos a seguir</div>
     </div>
     <div class="subidaImagen">
       <label for="uploadImage" class="btnUpload">Subir imagen

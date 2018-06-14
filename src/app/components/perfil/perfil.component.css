@@ -8,6 +8,8 @@
 .nombre{
   font-size: 2em;
   margin-right: 15px;
+  display: flex;
+  align-items: flex-end;
 }
 
 .overlay{
@@ -52,8 +54,8 @@
 .bloqueFoto{
   width: 300px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-end;
+  /* align-items: center; */
   height: 100%;
 }
 
@@ -75,6 +77,9 @@
   background-color: #d2ddd2;
   padding: 5px;
   border-radius: 10px;
+  /* width: auto; */
+  max-width: 290px;
+  overflow: hidden;
 }
 
 .bloqueSave {
@@ -256,9 +261,9 @@ outline: none;
 
 .card {
   background: #fff;
-  display: inline-block;
+  /* display: inline-block; */
   height: 300px;
-  position: relative;
+  /* position: relative; */
   width: 300px;
 }
 
@@ -272,23 +277,41 @@ outline: none;
 }
 
 .bloqueSeguimiento{
+  height: 100px;
   display: flex;
   width: 300px;
   justify-content: space-around;
+  align-items: flex-end;
 }
 
 .grupo{
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;  
-  width: 450px;
+  align-items: flex-start;  
+  width: 500px;
+  height: 300px;
 }
 
 .bloqueFoto{
   display: flex;
-  justify-content: space-between;
-  align-items: center;  
+  justify-content: flex-end;
+  align-items: flex-end;
   width: 33%;
+}
+.bloqueFotoEdit{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 33%;
+}
+
+.datosUser{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .principal{
@@ -344,13 +367,7 @@ outline: none;
   flex-direction: column;
   justify-content:flex-start;
   align-items: center;
-}
-
-.cabeceraSeguidos{
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-content: center;
+  background-color: rgb(231, 231, 231)
 }
 
 /* .cerrarSeguidos{
@@ -401,7 +418,23 @@ outline: none;
 }
 
 .segue{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
+  /* background-color: #888; */
+  height: 100%;
+  width: 100%;
+  transition: 0.3s;
+}
+.segue:hover{
+  background-color: #d2ddd2;
+  border-radius: 10px;
+}
+
+.numero{
+  font-size: 1.5em;
 }
 
 .cerrarSeguidos:hover {
@@ -415,9 +448,21 @@ outline: none;
 
 .bloqueUsers{
   width: 100%;
-  height: 500px;
+  height: 400px;
+  margin-top: 60px;
 }
 
 .userZone{
   height: auto;  
+}
+
+.cabeceraSeguidos{
+  background-color: #fff;
+  width: 68.5%;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  position: fixed;
+  align-items: center;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.25);
 }

@@ -48,7 +48,6 @@ export class RegistrerComponent implements OnInit {
       password2: new FormControl("", Validators.required)
     }, this.samePass);
 
-    console.log('Formulario de registro creado');
   }
 
   nombreCorrecto(control: FormControl): { [s: string]: boolean } {

@@ -3,8 +3,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RecetaService } from "../../services/receta.service";
 import { Router, ActivatedRoute } from '@angular/router';
 import { Receta } from "../../interfaces/receta.interface";
-import { AlertsService } from "../../services/alerts.service";
-import { IngredienteComponent } from "../../components/ingrediente/ingrediente.component";
 import { Usuario } from "../../interfaces/usuario.interfaces";
 import { LoginService } from "../../services/login.service";
 import { DatePipe } from '@angular/common';
@@ -35,15 +33,16 @@ export class CrearRecetaComponent implements OnInit {
     nick: ""
   }
 
+  public options: Object;
+
   constructor(private _recetaService:RecetaService,
               private router:Router,
               private route:ActivatedRoute,
-              private _alertService:AlertsService,
               private _loginService:LoginService,
               private _snotifyService: SnotifyService,
               private _uploadService: UploadService
             ) {
-
+    this.user = this._loginService.getDatosUser();
     // Obtenemos id de la URL
     this.route.params.subscribe( parametros=>{
       this.id = parametros['id']; 
@@ -57,12 +56,32 @@ export class CrearRecetaComponent implements OnInit {
       dificultad: new FormControl("", [Validators.required,
                                   this.dificultadSeleccionada]),      
     });
-    console.log("Formulario creado");
+    this.options={
+      placeholderText: '¡Cuéntanos tu receta!',
+        language: 'es',
+          // Set the image upload parameter.
+          imageUploadParam: 'image',
+
+            // Set the image upload URL.
+              imageUploadURL: `http://localhost:3800/api/upImageReceta`,
+
+              // Set request type.
+              imageUploadMethod: 'POST',
+
+                // Set max image size to 5MB.
+              imageMaxSize: 5 * 1024 * 1024,
+
+                  // Allow to upload PNG and JPG.
+              imageAllowedTypes: ['jpeg', 'jpg', 'png'],
+
+
+              toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '|', 'fontFamily', 'fontSize', 'color', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '-', 'insertLink', 'insertImage', 'insertVideo', 'embedly', 'insertFile', 'insertTable', '|', 'specialCharacters', 'insertHR', 'selectAll', 'clearFormatting', '|', 'print', 'spellChecker', 'help', 'html', '|', 'undo', 'redo']
+
+    }
    }
 
   ngOnInit() {
-    this.user = this._loginService.getDatosUser();        
-    console.log(this.user);
+
     
   }
 
@@ -84,7 +103,6 @@ export class CrearRecetaComponent implements OnInit {
       this.receta.creado = this.getFecha();
 
 
-      console.log(`Receta ->${JSON.stringify(this.receta)} `);
 
 
       this._recetaService.neuevaReceta(this.receta).subscribe(datos => {
@@ -97,11 +115,9 @@ export class CrearRecetaComponent implements OnInit {
           });
           this.pulsado = false;
         } else {
-          console.log(`RECETA -> ${datos.receta._id} `);
 
           this._uploadService.makeFileRequest(`http://localhost:3800/api/recetaImage/${datos.receta._id}`, [], this.filesToUpload, 'image', datos.receta._id)
             .then((res: any) => {
-              console.log(res);
               this.receta.img = res.Receta.img;
               // localStorage.setItem('userIndentificado', JSON.stringify(this.user));
               this.url = `http://localhost:3800/api/recetaImageFile/${res.Receta.img}`;
@@ -171,7 +187,6 @@ export class CrearRecetaComponent implements OnInit {
   public filesToUpload: Array<File>
   fileChangeEvent(fileInput: any){
     this.filesToUpload = <Array<File>>fileInput.target.files;
-    console.log(this.filesToUpload);
   }
 
   envio(){    

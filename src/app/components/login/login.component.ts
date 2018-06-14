@@ -41,10 +41,7 @@ export class LoginComponent implements OnInit {
     this.loginForm = new FormGroup({
       email: new FormControl("", Validators.required),
       password: new FormControl("", Validators.required)
-    });
-
-    console.log("Formulario de login creado");
-    
+    });    
 
    }
 
@@ -79,13 +76,6 @@ export class LoginComponent implements OnInit {
             pauseOnHover: false
           });
           this._router.navigate(['listaRecetas']);
-          console.log('Llegas??');
-          setTimeout(() => {
-            // this._loginService.getFollows().subscribe((res) => {
-            //   console.log(`RES -> ${JSON.stringify(res)} `);
-            // });
-          }, 500);
-
         });
       }else{
         this._snotifyService.error(datos.message, {

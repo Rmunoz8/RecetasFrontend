@@ -8,10 +8,12 @@ import { ListaUsuariosComponent } from "./components/lista-usuarios/lista-usuari
 import { RegistrerComponent } from "./components/registrer/registrer.component";
 import { LoginComponent } from "./components/login/login.component";
 import { PerfilComponent } from "./components/perfil/perfil.component";
+import { ErrorComponent } from "./components/error/error.component";
+import { InicioComponent } from "./components/inicio/inicio.component";
 
 const APP_ROUTES: Routes = [
     
-    {path: '', component: LoginComponent},
+    {path: '', component: InicioComponent},
     {path: 'perfil/:id', component: PerfilComponent},
     { path: 'listaRecetas', component: ListaRecetasComponent },
     { path: 'receta/:id', component: VistaRecetaComponent },
@@ -19,7 +21,7 @@ const APP_ROUTES: Routes = [
     { path: 'listaUsuarios', component: ListaUsuariosComponent },
     { path: 'registrer', component: RegistrerComponent },
     { path: 'login', component: LoginComponent },
-    { path: '**', component: LoginComponent }
+    { path: '**', component: ErrorComponent }
 
 ];
 

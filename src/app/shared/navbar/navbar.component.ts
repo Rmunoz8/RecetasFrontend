@@ -22,7 +22,6 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.user = this._loginService.getDatosUser();
-    console.log(this.user);
         
   }
 
@@ -35,7 +34,7 @@ export class NavbarComponent implements OnInit {
     });
     localStorage.clear();
     this.user = null;
-    this._router.navigate(['/']);
+    this._router.navigate(['/login']);
   }
 
   irPerfil(id:string){

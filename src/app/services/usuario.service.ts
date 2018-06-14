@@ -29,10 +29,7 @@ export class UsuarioService {
 
   constructor(private http:Http,
   private _loginService:LoginService) {
-    console.log("Servicio Usuarios listo");
     this.user = this._loginService.getDatosUser();
-    console.log(`User Identificado??? -> ${JSON.stringify(this.user)} `);
-    
    }
 
    setuserSeguidos(users:Array<Usuario>){
@@ -65,7 +62,6 @@ export class UsuarioService {
     }); 
 
     return this.http.post(url, body, {headers}).map(res =>{
-      console.log(res.json());
       return res.json();
     });
 
@@ -80,7 +76,6 @@ export class UsuarioService {
     });
 
     return this.http.post(url, body, {headers}).map(res=>{
-      console.log(`Actualización -> ${res.json()} `);
       return res.json();
     });
 
@@ -99,7 +94,6 @@ export class UsuarioService {
    }
 
    setUserSelect(user:Usuario){
-     console.log(`USER SELECT -> ${JSON.stringify(user)} `);
      
      this.userSelect = user;
    }

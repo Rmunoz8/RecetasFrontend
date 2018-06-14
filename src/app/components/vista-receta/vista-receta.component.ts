@@ -29,7 +29,6 @@ export class VistaRecetaComponent implements OnInit {
               private _router: Router,) {
                 this.activateRoute.params.subscribe(params =>{
                  this._recetasService.getReceta(params['id']).subscribe(data=>{
-                  console.log(data);
                   this.receta = data;
 
                   this.pasos = this._sanitazier.bypassSecurityTrustHtml(data.pasos)

@@ -8,6 +8,8 @@ import 'rxjs/Rx';
 @Injectable()
 export class LoginService {
 
+  pulsado: boolean;
+  pulsadoSeguir: boolean;
   URL: string = "http://localhost:3800/api";
   URLLogin: string = "/login";
   URLFollows: string = "/myFollows";
@@ -17,15 +19,28 @@ export class LoginService {
   seguidos:Array<string> = [];
 
   constructor(private http:Http) {
-    console.log("Servicio login listo");
     this.getDatosUser();
+   }
+
+   setPulsadoSeguir(valor: boolean){
+     this.pulsadoSeguir = valor;
+   }
+
+   getPulsadoSeguir(){
+     return this.pulsadoSeguir;
+   }
+
+   setPulsado(valor:boolean){
+     this.pulsado = valor;
+   }
+
+   getPulsado(){
+     return this.pulsado;
    }
 
    accesoUsuario(userLog){
 
-    let body = JSON.stringify(userLog);
-    console.log(`BODY-> ${body} `);
-    
+    let body = JSON.stringify(userLog);    
     let url = `${this.URL}${this.URLLogin}`;
     let headers = new Headers({
       'Content-Type': 'application/json'
@@ -54,9 +69,7 @@ export class LoginService {
       let url = `${this.URL}${this.URLFollows}/${userDatos._id}`;
       let headers = new Headers({
         'Content-Type': 'application/json'
-      });
-      console.log(`ESTE LLEGA AQUÍ??? O NO???`);
-      
+      });      
       return this.http.get(url).map(res =>{
         this.seguidos.push(`ESTA ES LA RESPUESTA->${res.json()}`);
         res.json()

@@ -25,7 +25,6 @@ export class ListaRecetasComponent implements OnInit {
               private _usuarioService:UsuarioService) {
 
                 this._loginService.getFollows().subscribe((res) => {
-                  console.log(`RES!!! -> ${res} `);
                 });
 
                 this._recetaService.getRecetas().subscribe(data=>{
@@ -45,7 +44,6 @@ export class ListaRecetasComponent implements OnInit {
   }
 
   verReceta(i:number){
-    console.log(i);
     this.router.navigate(['/receta', i]);
   }
 }

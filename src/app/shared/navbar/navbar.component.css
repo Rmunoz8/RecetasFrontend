@@ -14,7 +14,7 @@
     display: flex;
     width: 25%;
     justify-content: flex-start;
-    height: 50px;
+    height: 90px;
     justify-items: center;
     align-items: center
 }
@@ -77,7 +77,7 @@
 .link:hover{
     color: #C4D4A4;
     cursor: pointer;
-    background-color: #445723;    
+    /* background-color: #445723;     */
 }
 .link:focus{
     outline: none;
